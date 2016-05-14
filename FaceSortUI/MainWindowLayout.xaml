@@ -1,0 +1,149 @@
+﻿<Canvas x:Class="FaceSortUI.MainWindowLayout" Height="auto" Width ="auto"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
+  <DockPanel  LastChildFill="True" >
+      <Border  Height ="30" Background="Silver" BorderBrush="Black" BorderThickness="1" DockPanel.Dock="Top" Width="auto">
+        <!-- Top panel containing Menu and Button-->
+        <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Width="auto">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+          </Grid.ColumnDefinitions>
+          <Canvas Height ="30" Width="50" Grid.Column="0">
+            <!-- File Menu Definitions -->
+            <Menu Width="40" Margin="10, 2, 5, 5" HorizontalAlignment="Left" Background="Silver" >
+              <MenuItem Header="_File">
+                <MenuItem Header="_Load Collection" Click="OnLoadCollectionClick">
+                  <MenuItem.ToolTip>
+                    <ToolTip>
+                      Load a collection of previously segmented faces by directory or suite file
+                    </ToolTip>
+                  </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="_Load Images" Click="OnLoadImagesClick">
+                  <MenuItem.ToolTip>
+                    <ToolTip>
+                      Load individual previously segmented face files
+                    </ToolTip>
+                  </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="_Load Photo Collection" Click="OnLoadPhotoCollectionClick">
+                  <MenuItem.ToolTip>
+                    <ToolTip>
+                      Load a collection of photos from a text file. Runs face detection. Requires face dection classifier path to be set in options dialog
+                    </ToolTip>
+                  </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="_Load Photo Directory" Click="OnLoadPhotoDirectoryClick">
+                  <MenuItem.ToolTip>
+                    <ToolTip>
+                      Load all photos in a directory. Runs face detection. Requires face detection classifier path to be set in options dialog
+                    </ToolTip>
+                  </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="_Load Labelled Photos" Click="OnLoadPhotoCollectionLabelledClick">
+                  <MenuItem.ToolTip>
+                    <ToolTip>
+                      Load a text file with photo paths and eye locations. Temporary hack
+                    </ToolTip>
+                  </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="_Save As" Click="OnSaveAs">
+                  <MenuItem.ToolTip>
+                    <ToolTip>
+                      Save current gallery
+                    </ToolTip>
+                  </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="_Load Gallery" Click="OnLoadGallery">
+                  <MenuItem.ToolTip>
+                    <ToolTip>
+                      Load a previously saved gallery
+                    </ToolTip>
+                  </MenuItem.ToolTip>
+                </MenuItem>
+                <MenuItem Header="_Options" Click="OnFileOptionClick">
+                  <MenuItem.ToolTip>
+                    <ToolTip>
+                      Set debug and backend options
+                    </ToolTip>
+                  </MenuItem.ToolTip>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="Clear" Click="OnClearClick"/>
+                <MenuItem.ToolTip>
+                  <ToolTip>
+                    Clear currently loaded display
+                  </ToolTip>
+                </MenuItem.ToolTip>
+              </MenuItem>
+            </Menu>
+          </Canvas>
+          
+          <!-- Button Definitions-->
+            <Canvas  Height="30" Width="50" Margin="10, 2, 5, 5" Grid.Column="1" >
+              <Button  Width="45" Height="20" ToolTip="Comput inter-face distances" Background="Wheat" Click="DistanceButtonClick">
+                Dist
+              </Button>
+            </Canvas>
+          <Canvas  Height="30" Width="50" Margin="10, 2, 5, 5" Grid.Column="2" >
+            <Button  Width="45" Height="20" ToolTip="Generate Initial 2D Layout" Background="Wheat" Click="InitialButtonClick">
+              Init
+            </Button>
+          </Canvas>
+          <Canvas  Height="30" Width="50"  Margin="10, 2, 5, 5" Grid.Column="3">
+            <Button  Width="45" Height="20" ToolTip="Run incremental update using selected face" Background="Wheat" Click="UpdateButtonClick" Name="LayoutUpdateButton">
+              Update
+            </Button>
+          </Canvas>
+          <Canvas  Height="30" Width="50"  Margin="10, 2, 5, 5" Grid.Column="4">
+            <Button  Width="45" Height="20" ToolTip="Toggle display of photo blowout" Background="Wheat" Click="PhotoToggleClick" Name="PhotoDisplayButton">
+              Hide
+            </Button>
+          </Canvas>
+        </Grid>
+      </Border>
+    
+    <Border   Width ="200" Height ="auto" Background="Silver" BorderBrush="Black" BorderThickness="1" DockPanel.Dock="Right" Name="MainDebugBorder">
+      <!-- Debug Canvas Display down Right Column-->
+      <Canvas Top ="0">
+        <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Width="250">
+          <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+          </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Width ="auto" >Debug Panel</TextBlock>
+        <TextBox Name="DebugListBoxHead" Grid.Row="1"  Width ="auto" IsEnabled="False"></TextBox>
+        <ListView Name="DebugListView" Grid.Row="2"  Margin="5, 5, 5, 5" Width ="200" Height="600" 
+                  GridViewColumnHeader.Click="GridViewColumnHeaderClickedHandler" SelectionChanged="GridViewSelectionChangedHandler">
+          <ListView.View>
+            <GridView AllowsColumnReorder="True" ColumnHeaderToolTip="FaceInformation">
+              <GridViewColumn Header="FaceName" ></GridViewColumn>
+              <GridViewColumn Header="Distance" ></GridViewColumn>
+            </GridView>
+          </ListView.View>
+        </ListView>
+        </Grid>
+      </Canvas>
+      
+    </Border>
+    <!--Status Box at the bottom-->
+    <Border  Height ="25" Background="Silver" BorderBrush="Black" BorderThickness="1" DockPanel.Dock="Bottom" Name="MainStatusBorder">
+      <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Width="auto">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="20" />
+          <ColumnDefinition Width="18.6133333333333" />
+          <ColumnDefinition Width="0.5*" />
+          <ColumnDefinition Width="0.5*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Foreground="Black" Name="StatusBlock" Grid.ColumnSpan="2" Margin="0,0,16.2916666666667,0">Status:"</TextBlock>
+        <TextBlock Foreground="Black" Grid.Column="1" Name="LastError" Grid.ColumnSpan="3" Margin="18.6133333333334,0,-18.6133333333334,0">Last Error:</TextBlock>
+      </Grid>
+      </Border>
+
+    </DockPanel>
+</Canvas>

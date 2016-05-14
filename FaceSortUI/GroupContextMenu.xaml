@@ -1,0 +1,10 @@
+<ContextMenu Name="GroupContextOption" x:Class="FaceSortUI.GroupContextMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <MenuItem Header="Edit Tag" Name="Edit" Tag="Edit group's label"/>
+  <MenuItem Header="Delete" Name="Delete" Tag="Delete this group"/>
+  <MenuItem Header="Split"  Name="Split" Tag="Creates a sort group"/>
+  <MenuItem Header="Unsplit"  Name="Unsplit" Tag="Unhook the split group into its components"/>
+  <MenuItem Header="Cancel" Name="Cancel"/>
+
+</ContextMenu>

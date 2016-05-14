@@ -234,3 +234,30 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+/DetectionManagedLib/LibFaceDetect.vcproj.8.00.old
+/faceDisp/faceDisp.csproj(2).old
+/faceDisp/faceDisp.csproj.old
+/faceDisp/tmp.txt
+/faceReco/deleted/deleted.001
+/faceReco/deleted
+/faceReco/EvalTestTask/EvalTestTask.csproj.old
+/faceReco/EvalTestTask/EvalTestTask.csproj.user.old
+/faceReco/NetDistanceJunk/deleted
+/faceReco/TestTask/TestTask.suo.old
+/faceReco/TestTask/TestTask.sln.old
+/FaceSortBackEnd/FaceSortBackEnd.csproj(2).old
+/FaceSortBackEnd/FaceSortBackEnd.csproj.old
+/FaceSortUI/2005Ver
+/FaceSortUI/FaceSortUI.csproj.old
+/FaceSortUI/FaceSortUI.csproj(2).old
+/FaceSortUI/FaceSortUI.suo.old
+/FaceSortUI/FaceSortUI.sln.old
+/Sample/photos
+/GenPositionData/deleted
+/GenPositionData/GenPositionData.csproj.user.old
+/GenPositionData/GenPositionData.csproj.user(2).old
+/GenPositionData/GenPositionData.csproj.old
+/GenPositionData/GenPositionData.csproj(2).old
+/main/main.csproj.old
+/main/main.csproj(2).old
+/FaceDetect.zip

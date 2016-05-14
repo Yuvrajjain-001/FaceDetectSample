@@ -1,0 +1,46 @@
+numBoostFeatures = 32
+numFeatureTh = 7
+numExamplesMax = 40000
+numSampledExamples = 1000
+negRejPercent = 0.1
+maskFreq = 64
+baseWidth = 24
+baseHeight = 24
+stepSize = 0.1
+stepScale = 1.2
+featureBaseWidth = 3
+featureBaseHeight = 3
+featureStepSize = 0.2
+featureStepScale = 1.3
+scoreFilePrefix = \\ahmadmsr\c$\faces\tmp\score
+scoreFileSize = 200000000
+numFolders = 2
+\\ahmadmsr\c$\faces\Rockfeller
+\\ahmadmsr\c$\faces\NonFaces
+\\ahmadmsr\c$\faces\060626
+\\ahmadmsr\c$\faces\060627
+\\ahmadmsr\c$\faces\060627a
+\\ahmadmsr\c$\faces\060628
+\\ahmadmsr\c$\faces\060629
+\\ahmadmsr\c$\faces\060629a
+\\ahmadmsr\c$\faces\060630
+\\ahmadmsr\c$\faces\060703
+\\ahmadmsr\c$\faces\060707
+\\ahmadmsr\c$\faces\060718
+\\ahmadmsr\c$\faces\060725
+\\ahmadmsr\c$\faces\RockfellerFlip
+\\ahmadmsr\c$\faces\060626Flip
+\\ahmadmsr\c$\faces\060627Flip
+\\ahmadmsr\c$\faces\060627aFlip
+\\ahmadmsr\c$\faces\060628Flip
+\\ahmadmsr\c$\faces\060629Flip
+\\ahmadmsr\c$\faces\060629aFlip
+\\ahmadmsr\c$\faces\060630Flip
+\\ahmadmsr\c$\faces\060703Flip
+\\ahmadmsr\c$\faces\060707Flip
+\\ahmadmsr\c$\faces\060718Flip
+\\ahmadmsr\c$\faces\060725Flip
+\\ahmadmsr\c$\faces\060714
+\\ahmadmsr\c$\faces\060715
+\\ahmadmsr\c$\faces\060714Flip
+\\ahmadmsr\c$\faces\060715Flip

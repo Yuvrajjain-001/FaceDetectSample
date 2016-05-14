@@ -1,0 +1,39 @@
+#
+# Build instructions for this directory
+#
+#   Sangmin Oh  July-2006       Created
+#
+
+!INCLUDE $(INETROOT)\build\paths.all
+!INCLUDE $(INETROOT)\build\sources.all
+
+
+MAJORCOMP	=	FaceDet
+MINORCOMP	=	FaceDet
+
+TARGETNAME	=	libFaceDetector
+
+TARGETTYPE	=	LIBRARY
+
+C_DEFINES	=	$(C_DEFINES) -D_NO_LIBJPEG
+
+INCLUDES	=	\
+			$(INCLUDES)	\
+			..\jpeg-6b
+
+SOURCES		=	\
+classifier.cpp		\
+detector.cpp		\
+feature.cpp		\
+image.cpp		\
+rand.cpp		\
+stdafx.cpp		\
+wrect.cpp		\
+
+TARGETLIBS	=	\
+			$(TARGETLIBS)					\
+
+USE_NATIVE_EH	=	1
+USE_MSVCRT	=	1
+USE_STL		=	1
+USE_IOSTREAM	=	1

@@ -1,0 +1,8 @@
+<ContextMenu Name="GroupMenuSelect" x:Class="FaceSortUI.CreateGroupMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <MenuItem Header="Grid" Name="Grid"/>
+    <MenuItem Header="Stack" Name="Stack"/>
+  <MenuItem Header="Cancel" Name="Cancel"/>
+
+</ContextMenu>

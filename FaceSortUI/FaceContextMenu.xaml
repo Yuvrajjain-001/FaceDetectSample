@@ -1,0 +1,9 @@
+﻿<ContextMenu Name="FaceContextOption" x:Class="FaceSortUI.FaceContextMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <MenuItem Header="Resort" Name="Resort" Tag="Resort faces with this face at head"/>
+  <MenuItem Header="Move" Name="Move" Tag="Move this face to other group"/>
+  <MenuItem Header="Move All"  Name="MoveAll" Tag="Move this an all faces to right to other group"/>
+  <MenuItem Header="SplitMove"  Name="SplitAndMove" Tag="Split and divide group into 2 at this Face"/>
+  <MenuItem Header="Cancel" />
+</ContextMenu>

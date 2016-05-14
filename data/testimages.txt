@@ -1,0 +1,5 @@
+C:\LiveLabs\private\research\private\face\data\classifier.txt
+stepSize = 0.1
+stepScale = 1.3
+numFolders = 1
+\\ahmadab1\c$\faces\0606026

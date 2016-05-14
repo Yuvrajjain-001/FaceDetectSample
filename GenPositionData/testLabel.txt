@@ -1,0 +1,480 @@
+\\dpufsrv\data\Images\faceDetect\060627a\SteffiGraf\Steffi Graf0006.jpg
+178 76 79 79 0.262 0.219 0.768 0.289 0.282 0.210 0.761 0.293 14
+\\dpufsrv\data\Images\faceDetect\060627a\SteffiGraf\Steffi Graf0010.jpg
+45 135 179 179 0.283 0.260 0.743 0.266 0.254 0.276 0.705 0.288 14
+\\dpufsrv\data\Images\faceDetect\060627a\SteffiGraf\Steffi Graf0011.jpg
+160 110 114 114 0.308 0.200 0.750 0.354 0.300 0.212 0.745 0.356 14
+\\dpufsrv\data\Images\faceDetect\060627a\SteffiGraf\Steffi Graf0015.jpg
+158 150 52 51 0.266 0.258 0.713 0.265 0.264 0.247 0.741 0.256 14
+\\dpufsrv\data\Images\faceDetect\060627a\SteffiGraf\Steffi Graf0020.jpg
+87 66 69 69 0.240 0.213 0.712 0.249 0.254 0.228 0.761 0.273 14
+\\dpufsrv\data\Images\faceDetect\060627a\SteffiGraf\Steffi Graf0031.jpg
+114 78 96 95 0.278 0.307 0.769 0.278 0.296 0.309 0.765 0.271 14
+\\dpufsrv\data\Images\faceDetect\060627a\SteffiGraf\Steffi Graf0039.jpg
+167 54 61 62 0.278 0.219 0.732 0.302 0.246 0.208 0.720 0.304 14
+\\dpufsrv\data\Images\faceDetect\060627\Shakira\Shakira0001.jpg
+101 105 119 118 0.279 0.251 0.743 0.189 0.253 0.281 0.738 0.220 15
+\\dpufsrv\data\Images\faceDetect\060627\Shakira\Shakira0003.jpg
+99 48 87 87 0.280 0.269 0.793 0.273 0.287 0.267 0.760 0.274 15
+\\dpufsrv\data\Images\faceDetect\060627\Shakira\Shakira0008.jpg
+80 76 34 34 0.231 0.317 0.747 0.269 0.247 0.318 0.720 0.267 15
+\\dpufsrv\data\Images\faceDetect\060627\Shakira\Shakira0011.jpg
+73 38 159 159 0.266 0.288 0.742 0.288 0.277 0.299 0.728 0.299 15
+\\dpufsrv\data\Images\faceDetect\060627\Shakira\Shakira0016.jpg
+108 114 150 150 0.215 0.302 0.742 0.240 0.236 0.318 0.750 0.252 15
+\\dpufsrv\data\Images\faceDetect\060627\Shakira\Shakira0017.jpg
+91 82 118 119 0.230 0.280 0.728 0.277 0.302 0.255 0.753 0.259 15
+\\dpufsrv\data\Images\faceDetect\060627\Shakira\Shakira0018.jpg
+127 51 61 61 0.198 0.236 0.678 0.290 0.281 0.251 0.719 0.287 15
+\\dpufsrv\data\Images\faceDetect\060627\Shakira\Shakira0019.jpg
+637 112 143 143 0.295 0.366 0.752 0.233 0.291 0.369 0.716 0.260 15
+\\dpufsrv\data\Images\faceDetect\060627\Shakira\Shakira0026.jpg
+168 75 65 65 0.263 0.206 0.741 0.239 0.255 0.213 0.746 0.242 15
+\\dpufsrv\data\Images\faceDetect\060627\Shakira\Shakira0033.jpg
+61 129 129 129 0.240 0.293 0.811 0.212 0.255 0.330 0.776 0.234 15
+\\dpufsrv\data\Images\faceDetect\060627\Shakira\Shakira0035.jpg
+140 128 252 251 0.275 0.244 0.777 0.348 0.278 0.254 0.771 0.336 15
+\\dpufsrv\data\Images\faceDetect\060627\Shakira\Shakira0047.jpg
+84 120 179 179 0.229 0.228 0.759 0.259 0.233 0.239 0.752 0.258 15
+\\dpufsrv\data\Images\faceDetect\060707\SandraBullock\Sandra Bullock0014.jpg
+165 126 132 131 0.316 0.297 0.710 0.232 0.276 0.318 0.707 0.251 18
+\\dpufsrv\data\Images\faceDetect\060707\SandraBullock\Sandra Bullock0031.jpg
+152 158 135 136 0.225 0.233 0.797 0.242 0.223 0.235 0.746 0.240 18
+\\dpufsrv\data\Images\faceDetect\060707\SandraBullock\Sandra Bullock0039.jpg
+217 207 103 103 0.322 0.212 0.728 0.366 0.321 0.244 0.763 0.350 18
+\\dpufsrv\data\Images\faceDetect\060707\SandraBullock\Sandra Bullock0040.jpg
+223 80 47 47 0.274 0.298 0.741 0.275 0.264 0.284 0.718 0.248 18
+\\dpufsrv\data\Images\faceDetect\060707\SandraBullock\Sandra Bullock0041.jpg
+148 138 119 119 0.274 0.267 0.758 0.279 0.272 0.273 0.741 0.279 18
+\\dpufsrv\data\Images\faceDetect\060707\SandraBullock\Sandra Bullock0043.jpg
+28 174 163 163 0.299 0.208 0.805 0.212 0.268 0.237 0.743 0.208 18
+\\dpufsrv\data\Images\faceDetect\060707\SandraBullock\Sandra Bullock0044.jpg
+127 197 190 190 0.252 0.207 0.747 0.327 0.269 0.217 0.759 0.317 18
+\\dpufsrv\data\Images\faceDetect\060707\SandraBullock\Sandra Bullock0045.jpg
+180 55 84 84 0.270 0.231 0.769 0.251 0.265 0.238 0.751 0.248 18
+\\dpufsrv\data\Images\faceDetect\060707\SandraBullock\Sandra Bullock0048.jpg
+543 103 127 127 0.281 0.275 0.738 0.275 0.270 0.282 0.726 0.291 18
+\\dpufsrv\data\Images\faceDetect\060707\ReneeZellweger\Renee Zellweger0005.jpg
+135 123 121 121 0.269 0.283 0.801 0.257 0.263 0.270 0.769 0.241 26
+\\dpufsrv\data\Images\faceDetect\060707\ReneeZellweger\Renee Zellweger0006.jpg
+203 104 115 114 0.281 0.305 0.760 0.283 0.279 0.305 0.729 0.285 26
+\\dpufsrv\data\Images\faceDetect\060707\ReneeZellweger\Renee Zellweger0017.jpg
+173 107 100 100 0.275 0.259 0.793 0.213 0.253 0.254 0.763 0.204 26
+\\dpufsrv\data\Images\faceDetect\060707\ReneeZellweger\Renee Zellweger0021.jpg
+74 109 126 126 0.213 0.213 0.695 0.187 0.215 0.215 0.679 0.197 26
+\\dpufsrv\data\Images\faceDetect\060707\ReneeZellweger\Renee Zellweger0026.jpg
+120 49 51 51 0.244 0.364 0.735 0.219 0.244 0.374 0.686 0.239 26
+\\dpufsrv\data\Images\faceDetect\060707\ReneeZellweger\Renee Zellweger0029.jpg
+113 80 89 88 0.291 0.293 0.728 0.205 0.280 0.311 0.711 0.219 26
+\\dpufsrv\data\Images\faceDetect\060707\ReneeZellweger\Renee Zellweger0032.jpg
+93 87 89 90 0.259 0.215 0.779 0.289 0.250 0.228 0.770 0.296 26
+\\dpufsrv\data\Images\faceDetect\060707\ReneeZellweger\Renee Zellweger0033.jpg
+66 99 224 224 0.202 0.221 0.714 0.213 0.193 0.233 0.723 0.216 26
+\\dpufsrv\data\Images\faceDetect\060707\ReneeZellweger\Renee Zellweger0039.jpg
+217 128 345 345 0.308 0.242 0.761 0.276 0.291 0.252 0.781 0.296 26
+\\dpufsrv\data\Images\faceDetect\060707\NaomiWatts\Naomi Watts0002.jpg
+122 97 110 110 0.291 0.237 0.782 0.271 0.283 0.232 0.765 0.263 32
+\\dpufsrv\data\Images\faceDetect\060707\NaomiWatts\Naomi Watts0008.jpg
+17 30 129 128 0.308 0.307 0.734 0.200 0.289 0.308 0.704 0.200 32
+\\dpufsrv\data\Images\faceDetect\060707\NaomiWatts\Naomi Watts0009.jpg
+167 230 265 265 0.326 0.281 0.771 0.236 0.308 0.314 0.755 0.263 32
+\\dpufsrv\data\Images\faceDetect\060626\MegRyan\Meg Ryan0002.jpg
+181 64 70 69 0.282 0.195 0.790 0.266 0.271 0.201 0.763 0.267 40
+\\dpufsrv\data\Images\faceDetect\060626\MegRyan\Meg Ryan0016.jpg
+204 99 79 80 0.211 0.349 0.684 0.233 0.213 0.332 0.690 0.215 40
+\\dpufsrv\data\Images\faceDetect\060626\MegRyan\Meg Ryan0017.jpg
+141 93 235 235 0.282 0.275 0.781 0.282 0.276 0.245 0.789 0.247 40
+\\dpufsrv\data\Images\faceDetect\060626\LisaKudrow\Lisa Kudrow0016.jpg
+104 106 105 106 0.280 0.264 0.732 0.253 0.290 0.281 0.750 0.258 46
+\\dpufsrv\data\Images\faceDetect\060626\LisaKudrow\Lisa Kudrow0018.jpg
+105 83 69 69 0.252 0.286 0.742 0.246 0.250 0.274 0.733 0.235 46
+\\dpufsrv\data\Images\faceDetect\060626\LisaKudrow\Lisa Kudrow0020.jpg
+110 46 293 293 0.296 0.284 0.782 0.240 0.304 0.277 0.789 0.247 46
+\\dpufsrv\data\Images\faceDetect\060626\LisaKudrow\Lisa Kudrow0024.jpg
+48 170 81 81 0.348 0.257 0.758 0.285 0.340 0.251 0.743 0.271 46
+\\dpufsrv\data\Images\faceDetect\060626\LisaKudrow\Lisa Kudrow0028.jpg
+477 83 246 246 0.262 0.262 0.757 0.212 0.248 0.237 0.758 0.222 46
+\\dpufsrv\data\Images\faceDetect\060626\LisaKudrow\Lisa Kudrow0030.jpg
+144 77 101 101 0.240 0.332 0.739 0.236 0.247 0.322 0.738 0.253 46
+\\dpufsrv\data\Images\faceDetect\060627\KellyClarkson\Kelly Clarkson0009.jpg
+133 174 55 55 0.263 0.227 0.757 0.316 0.265 0.227 0.759 0.301 57
+\\dpufsrv\data\Images\faceDetect\060627\KellyClarkson\Kelly Clarkson0009.jpg
+450 341 98 99 0.291 0.208 0.799 0.213 0.271 0.213 0.762 0.244 57
+\\dpufsrv\data\Images\faceDetect\060627\KellyClarkson\Kelly Clarkson0013.JPG
+415 123 47 46 0.220 0.135 0.753 0.188 0.259 0.156 0.757 0.218 57
+\\dpufsrv\data\Images\faceDetect\060627\KellyClarkson\Kelly Clarkson0014.jpg
+333 10 24 24 0.309 0.231 0.828 0.295 0.284 0.233 0.751 0.299 57
+\\dpufsrv\data\Images\faceDetect\060627\KellyClarkson\Kelly Clarkson0014.jpg
+354 213 27 27 0.243 0.206 0.832 0.200 0.248 0.243 0.766 0.213 57
+\\dpufsrv\data\Images\faceDetect\060627\KellyClarkson\Kelly Clarkson0017.jpg
+117 55 113 113 0.249 0.292 0.740 0.243 0.288 0.301 0.712 0.250 57
+\\dpufsrv\data\Images\faceDetect\060627\KellyClarkson\Kelly Clarkson0031.jpg
+67 147 173 174 0.277 0.262 0.735 0.259 0.268 0.266 0.745 0.257 57
+\\dpufsrv\data\Images\faceDetect\060707\KateWinslet\Kate Winslet0000.jpg
+183 199 177 178 0.248 0.236 0.716 0.230 0.253 0.254 0.713 0.244 58
+\\dpufsrv\data\Images\faceDetect\060707\KateWinslet\Kate Winslet0021.jpg
+96 64 90 91 0.324 0.268 0.747 0.261 0.299 0.264 0.749 0.256 58
+\\dpufsrv\data\Images\faceDetect\060707\KateWinslet\Kate Winslet0033.jpg
+66 110 114 114 0.374 0.342 0.775 0.213 0.360 0.344 0.785 0.257 58
+\\dpufsrv\data\Images\faceDetect\060707\KateWinslet\Kate Winslet0040.jpg
+389 90 83 83 0.280 0.320 0.760 0.214 0.287 0.327 0.747 0.212 58
+\\dpufsrv\data\Images\faceDetect\060707\KateWinslet\Kate Winslet0041.jpg
+44 132 224 224 0.267 0.312 0.679 0.194 0.249 0.315 0.695 0.202 58
+\\dpufsrv\data\Images\faceDetect\060707\KateWinslet\Kate Winslet0045.jpg
+104 102 88 88 0.281 0.258 0.760 0.293 0.280 0.260 0.735 0.297 58
+\\dpufsrv\data\Images\faceDetect\060707\KateWinslet\Kate Winslet0046.jpg
+116 136 166 166 0.263 0.299 0.738 0.264 0.260 0.300 0.734 0.250 58
+\\dpufsrv\data\Images\faceDetect\060707\KateWinslet\Kate Winslet0054.jpg
+183 199 177 178 0.265 0.246 0.738 0.240 0.261 0.256 0.732 0.249 58
+\\dpufsrv\data\Images\faceDetect\060707\KateWinslet\Kate Winslet0056.jpg
+106 112 109 108 0.288 0.284 0.760 0.262 0.272 0.280 0.768 0.243 58
+\\dpufsrv\data\Images\faceDetect\060626\JodieFoster\Jodie Foster0000.jpg
+132 120 44 44 0.260 0.311 0.756 0.249 0.297 0.311 0.730 0.259 67
+\\dpufsrv\data\Images\faceDetect\060626\JodieFoster\Jodie Foster0004.jpg
+148 151 118 117 0.278 0.210 0.802 0.225 0.274 0.234 0.778 0.252 67
+\\dpufsrv\data\Images\faceDetect\060626\JodieFoster\Jodie Foster0006.jpg
+136 168 132 132 0.260 0.228 0.773 0.199 0.256 0.230 0.746 0.208 67
+\\dpufsrv\data\Images\faceDetect\060626\JodieFoster\Jodie Foster0015.jpg
+198 242 224 224 0.175 0.270 0.723 0.274 0.227 0.286 0.720 0.299 67
+\\dpufsrv\data\Images\faceDetect\060626\JodieFoster\Jodie Foster0016.jpg
+186 74 71 70 0.242 0.259 0.733 0.232 0.256 0.266 0.746 0.244 67
+\\dpufsrv\data\Images\faceDetect\060626\JodieFoster\Jodie Foster0017.jpg
+264 204 223 223 0.228 0.230 0.779 0.211 0.249 0.234 0.782 0.225 67
+\\dpufsrv\data\Images\faceDetect\060626\JodieFoster\Jodie Foster0018.jpg
+117 132 161 161 0.248 0.254 0.769 0.239 0.237 0.249 0.742 0.221 67
+\\dpufsrv\data\Images\faceDetect\060626\JodieFoster\Jodie Foster0030.jpg
+118 155 127 127 0.274 0.244 0.800 0.230 0.270 0.247 0.782 0.236 67
+\\dpufsrv\data\Images\faceDetect\060626\JodieFoster\Jodie Foster0034.jpg
+153 104 83 82 0.271 0.204 0.795 0.151 0.261 0.227 0.751 0.185 67
+\\dpufsrv\data\Images\faceDetect\060626\JodieFoster\Jodie Foster0035.jpg
+63 149 214 214 0.279 0.255 0.758 0.266 0.252 0.253 0.775 0.273 67
+\\dpufsrv\data\Images\faceDetect\060626\JessicaAlba\Jessica Alba0006.jpg
+15 95 132 132 0.302 0.263 0.647 0.232 0.299 0.263 0.698 0.244 69
+\\dpufsrv\data\Images\faceDetect\060626\JessicaAlba\Jessica Alba0008.jpg
+238 58 128 128 0.337 0.287 0.762 0.242 0.312 0.297 0.763 0.264 69
+\\dpufsrv\data\Images\faceDetect\060626\JessicaAlba\Jessica Alba0012.jpg
+233 55 129 128 0.329 0.293 0.744 0.249 0.307 0.299 0.749 0.270 69
+\\dpufsrv\data\Images\faceDetect\060626\JessicaAlba\Jessica Alba0024.jpg
+123 112 113 113 0.279 0.183 0.763 0.293 0.267 0.195 0.791 0.307 69
+\\dpufsrv\data\Images\faceDetect\060626\JessicaAlba\Jessica Alba0029.jpg
+105 71 66 66 0.227 0.237 0.746 0.218 0.220 0.265 0.730 0.200 69
+\\dpufsrv\data\Images\faceDetect\060707\JanetJackson\Janet Jackson0001.jpg
+140 175 143 143 0.213 0.268 0.756 0.197 0.223 0.284 0.733 0.234 73
+\\dpufsrv\data\Images\faceDetect\060707\JanetJackson\Janet Jackson0002.jpg
+65 82 91 91 0.233 0.301 0.776 0.226 0.234 0.330 0.743 0.244 73
+\\dpufsrv\data\Images\faceDetect\060707\JanetJackson\Janet Jackson0003.jpg
+96 143 184 184 0.189 0.304 0.734 0.160 0.242 0.316 0.746 0.202 73
+\\dpufsrv\data\Images\faceDetect\060707\JanetJackson\Janet Jackson0004.jpg
+27 46 49 50 0.199 0.285 0.796 0.245 0.240 0.281 0.758 0.250 73
+\\dpufsrv\data\Images\faceDetect\060707\JanetJackson\Janet Jackson0009.jpg
+125 141 219 219 0.217 0.288 0.773 0.293 0.240 0.264 0.779 0.260 73
+\\dpufsrv\data\Images\faceDetect\060707\JanetJackson\Janet Jackson0012.jpg
+95 114 89 89 0.209 0.315 0.691 0.277 0.251 0.300 0.731 0.254 73
+\\dpufsrv\data\Images\faceDetect\060707\JanetJackson\Janet Jackson0013.jpg
+67 158 171 171 0.288 0.318 0.846 0.212 0.274 0.320 0.799 0.209 73
+\\dpufsrv\data\Images\faceDetect\060707\JanetJackson\Janet Jackson0014.jpg
+55 76 156 156 0.252 0.311 0.731 0.233 0.257 0.298 0.739 0.212 73
+\\dpufsrv\data\Images\faceDetect\060707\JanetJackson\Janet Jackson0021.jpg
+191 115 97 97 0.269 0.301 0.808 0.247 0.289 0.308 0.795 0.252 73
+\\dpufsrv\data\Images\faceDetect\060707\JanetJackson\Janet Jackson0031.jpg
+260 72 85 86 0.145 0.207 0.723 0.163 0.170 0.195 0.722 0.191 73
+\\dpufsrv\data\Images\faceDetect\060627\ChristinaAguilera\Christina Aguilera0000.jpg
+187 87 107 106 0.260 0.258 0.729 0.228 0.300 0.299 0.716 0.276 102
+\\dpufsrv\data\Images\faceDetect\060627\ChristinaAguilera\Christina Aguilera0026.jpg
+169 44 169 169 0.300 0.239 0.757 0.203 0.307 0.252 0.763 0.252 102
+\\dpufsrv\data\Images\faceDetect\060627\ChristinaAguilera\Christina Aguilera0026.jpg
+588 72 113 113 0.292 0.242 0.729 0.203 0.286 0.265 0.732 0.257 102
+\\dpufsrv\data\Images\faceDetect\060627\ChristinaAguilera\Christina Aguilera0029.jpg
+398 106 124 124 0.290 0.242 0.706 0.224 0.300 0.254 0.741 0.244 102
+\\dpufsrv\data\Images\faceDetect\060627\ChristinaAguilera\Christina Aguilera0045.jpg
+121 132 224 224 0.204 0.356 0.636 0.233 0.204 0.315 0.672 0.205 102
+\\dpufsrv\data\Images\faceDetect\060707\CharlizeTheron\Charlize Theron0002.jpg
+131 72 48 47 0.224 0.255 0.756 0.262 0.253 0.242 0.743 0.251 105
+\\dpufsrv\data\Images\faceDetect\060707\CharlizeTheron\Charlize Theron0008.jpg
+402 143 114 114 0.341 0.191 0.705 0.281 0.291 0.189 0.710 0.286 105
+\\dpufsrv\data\Images\faceDetect\060707\CharlizeTheron\Charlize Theron0009.jpg
+147 137 189 189 0.285 0.281 0.728 0.255 0.283 0.278 0.730 0.252 105
+\\dpufsrv\data\Images\faceDetect\060707\CharlizeTheron\Charlize Theron0015.jpg
+601 78 88 88 0.244 0.311 0.677 0.201 0.267 0.329 0.677 0.207 105
+\\dpufsrv\data\Images\faceDetect\060707\CharlizeTheron\Charlize Theron0018.jpg
+100 128 167 167 0.269 0.268 0.747 0.247 0.267 0.296 0.739 0.251 105
+\\dpufsrv\data\Images\faceDetect\060707\CharlizeTheron\Charlize Theron0028.jpg
+70 84 73 73 0.248 0.259 0.677 0.211 0.217 0.277 0.659 0.206 105
+\\dpufsrv\data\Images\faceDetect\060707\CharlizeTheron\Charlize Theron0031.jpg
+81 90 110 110 0.257 0.304 0.772 0.208 0.264 0.310 0.736 0.206 105
+\\dpufsrv\data\Images\faceDetect\060707\CharlizeTheron\Charlize Theron0040.jpg
+172 68 71 71 0.280 0.260 0.733 0.226 0.264 0.272 0.731 0.231 105
+\\dpufsrv\data\Images\faceDetect\060707\CharlizeTheron\Charlize Theron0048.jpg
+141 158 98 98 0.255 0.284 0.745 0.179 0.267 0.330 0.740 0.228 105
+\\dpufsrv\data\Images\faceDetect\060707\CharlizeTheron\Charlize Theron0050.jpg
+284 95 92 92 0.238 0.327 0.659 0.220 0.255 0.328 0.673 0.206 105
+\\dpufsrv\data\Images\faceDetect\060707\CharlizeTheron\Charlize Theron0056.jpg
+211 41 42 42 0.262 0.263 0.774 0.251 0.251 0.260 0.760 0.246 105
+\\dpufsrv\data\Images\faceDetect\060627\Beyonce\Beyonce0002.jpg
+239 38 89 89 0.306 0.247 0.757 0.309 0.330 0.251 0.759 0.310 115
+\\dpufsrv\data\Images\faceDetect\060627\Beyonce\Beyonce0004.jpg
+104 28 66 66 0.251 0.263 0.729 0.305 0.268 0.263 0.741 0.311 115
+\\dpufsrv\data\Images\faceDetect\060627\Beyonce\Beyonce0005.jpg
+105 142 169 169 0.260 0.264 0.735 0.276 0.270 0.265 0.739 0.257 115
+\\dpufsrv\data\Images\faceDetect\060627\Beyonce\Beyonce0009.jpg
+134 38 45 45 0.288 0.264 0.764 0.329 0.274 0.239 0.727 0.260 115
+\\dpufsrv\data\Images\faceDetect\060627\Beyonce\Beyonce0013.jpg
+190 195 63 63 0.230 0.233 0.699 0.287 0.238 0.232 0.739 0.290 115
+\\dpufsrv\data\Images\faceDetect\060627\Beyonce\Beyonce0015.jpg
+170 66 81 81 0.262 0.288 0.761 0.228 0.266 0.295 0.761 0.241 115
+\\dpufsrv\data\Images\faceDetect\060627\Beyonce\Beyonce0016.jpg
+117 97 116 116 0.268 0.280 0.756 0.289 0.267 0.268 0.753 0.272 115
+\\dpufsrv\data\Images\faceDetect\060627\Beyonce\Beyonce0030.jpg
+180 84 78 77 0.228 0.295 0.744 0.277 0.248 0.280 0.747 0.259 115
+\\dpufsrv\data\Images\faceDetect\060627\Beyonce\Beyonce0032.jpg
+189 27 92 92 0.249 0.235 0.781 0.302 0.301 0.242 0.735 0.309 115
+\\dpufsrv\data\Images\faceDetect\060627\Beyonce\Beyonce0042.jpg
+296 85 255 255 0.227 0.226 0.731 0.273 0.247 0.228 0.754 0.268 115
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Drew\IMG_0613.JPG
+1260 856 324 324 0.264 0.240 0.773 0.250 0.282 0.246 0.757 0.259 151
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Drew\IMG_0617.JPG
+1216 912 268 268 0.280 0.252 0.742 0.271 0.277 0.262 0.717 0.289 151
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Drew\IMG_0619.JPG
+1144 924 296 296 0.237 0.244 0.757 0.234 0.254 0.244 0.747 0.250 151
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Drew\IMG_0621.JPG
+1256 948 268 268 0.263 0.264 0.777 0.255 0.269 0.268 0.761 0.262 151
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Drew\IMG_0622.JPG
+1228 896 292 288 0.259 0.224 0.718 0.233 0.270 0.239 0.718 0.253 151
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Drew\IMG_0624.JPG
+1212 972 256 260 0.286 0.275 0.745 0.251 0.276 0.295 0.726 0.262 151
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Drew\IMG_0633.JPG
+1164 980 296 296 0.250 0.238 0.694 0.269 0.259 0.263 0.686 0.293 151
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Kevin\IMG_0745.JPG
+1376 960 360 360 0.267 0.252 0.743 0.248 0.275 0.265 0.736 0.260 159
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Kevin\IMG_0828.JPG
+1316 1140 292 292 0.247 0.192 0.791 0.250 0.241 0.218 0.727 0.274 159
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Kevin\IMG_0829.JPG
+1312 1036 392 388 0.289 0.288 0.763 0.270 0.296 0.300 0.752 0.283 159
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Kevin\IMG_0836.JPG
+1364 928 340 344 0.258 0.279 0.746 0.235 0.269 0.288 0.731 0.252 159
+\\dpufsrv\data\Images\faceDetect\LLdata\SetTwo\Bruno\IMG_0427.JPG
+1432 996 264 264 0.217 0.224 0.697 0.240 0.215 0.238 0.706 0.246 163
+\\dpufsrv\data\Images\faceDetect\LLdata\SetTwo\Bruno\IMG_0429.JPG
+1192 968 284 284 0.287 0.280 0.723 0.280 0.280 0.258 0.734 0.288 163
+\\dpufsrv\data\Images\faceDetect\LLdata\SetTwo\Bruno\IMG_0432.JPG
+1336 1380 340 340 0.280 0.312 0.735 0.252 0.274 0.299 0.740 0.256 163
+\\dpufsrv\data\Images\faceDetect\LLdata\SetTwo\Bruno\IMG_0436.JPG
+1232 1132 268 268 0.272 0.272 0.768 0.253 0.273 0.263 0.763 0.244 163
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Bruno\IMG_0541.JPG
+1388 1264 320 320 0.286 0.228 0.722 0.250 0.282 0.240 0.750 0.257 163
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Bruno\IMG_0548.JPG
+1204 1152 276 280 0.297 0.270 0.774 0.306 0.283 0.256 0.789 0.306 163
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Bruno\IMG_0549.JPG
+1200 1196 312 312 0.298 0.228 0.749 0.233 0.297 0.235 0.772 0.254 163
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Bruno\IMG_0796.JPG
+1396 996 528 528 0.284 0.250 0.714 0.219 0.285 0.264 0.725 0.242 163
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Bruno\IMG_0799.JPG
+1168 768 548 548 0.292 0.260 0.732 0.248 0.292 0.258 0.745 0.258 163
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Bruno\IMG_0801.JPG
+1304 1020 492 492 0.353 0.256 0.756 0.209 0.341 0.278 0.761 0.251 163
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Bruno\IMG_0802.JPG
+1124 680 480 480 0.288 0.255 0.748 0.269 0.264 0.255 0.764 0.285 163
+\\dpufsrv\data\Images\faceDetect\LLdata\SetOne\Vadim\IMG_0199.JPG
+1364 636 452 448 0.282 0.279 0.686 0.254 0.291 0.300 0.704 0.259 167
+\\dpufsrv\data\Images\faceDetect\LLdata\SetOne\Vadim\IMG_0205.JPG
+1228 716 392 392 0.289 0.251 0.732 0.277 0.282 0.265 0.735 0.278 167
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Vadim\IMG_0670.JPG
+1440 928 288 288 0.282 0.245 0.726 0.249 0.276 0.253 0.733 0.255 167
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Vadim\IMG_0671.JPG
+1464 1040 328 328 0.281 0.237 0.763 0.189 0.312 0.248 0.750 0.232 167
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Vadim\IMG_0672.JPG
+1216 1020 324 324 0.229 0.249 0.695 0.261 0.224 0.255 0.690 0.257 167
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Vadim\IMG_0675.JPG
+1392 1224 304 304 0.284 0.215 0.750 0.278 0.264 0.221 0.745 0.268 167
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Vadim\IMG_0676.JPG
+1424 1144 360 360 0.280 0.291 0.727 0.251 0.249 0.305 0.700 0.253 167
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Vadim\IMG_0677.JPG
+1400 1120 288 288 0.278 0.285 0.698 0.264 0.283 0.296 0.720 0.277 167
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Vadim\IMG_0679.JPG
+1576 912 428 428 0.277 0.229 0.742 0.235 0.300 0.244 0.756 0.257 167
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Vadim\IMG_0682.JPG
+1280 1112 392 392 0.254 0.224 0.738 0.192 0.235 0.253 0.710 0.206 167
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Vadim\IMG_0684.JPG
+1276 1012 392 392 0.283 0.317 0.748 0.252 0.311 0.312 0.740 0.253 167
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Vadim\IMG_0853.JPG
+1280 800 276 276 0.279 0.290 0.743 0.185 0.270 0.312 0.752 0.207 167
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Vadim\IMG_0855.JPG
+1296 828 332 332 0.278 0.281 0.709 0.231 0.295 0.285 0.709 0.251 167
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Vadim\IMG_0859.JPG
+1472 952 292 292 0.312 0.303 0.724 0.242 0.318 0.303 0.733 0.248 167
+\\dpufsrv\data\Images\faceDetect\LLdata\SetOne\Tracy\IMG_0160.JPG
+1376 688 384 388 0.233 0.250 0.738 0.254 0.250 0.263 0.747 0.259 168
+\\dpufsrv\data\Images\faceDetect\LLdata\SetOne\Tracy\IMG_0162.JPG
+1212 904 420 420 0.225 0.259 0.705 0.216 0.253 0.271 0.702 0.241 168
+\\dpufsrv\data\Images\faceDetect\LLdata\SetOne\Tracy\IMG_0163.JPG
+1204 868 388 388 0.218 0.267 0.759 0.202 0.249 0.268 0.749 0.241 168
+\\dpufsrv\data\Images\faceDetect\LLdata\SetTwo\Tracy\IMG_0445.JPG
+1372 936 288 288 0.244 0.250 0.734 0.240 0.269 0.253 0.730 0.256 168
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Tracy\IMG_0690.JPG
+1304 1056 252 252 0.230 0.222 0.762 0.234 0.272 0.239 0.748 0.257 168
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Tracy\IMG_0695.JPG
+1248 1028 268 268 0.258 0.266 0.746 0.287 0.268 0.260 0.745 0.301 168
+\\dpufsrv\data\Images\faceDetect\LLdata\SetOne\Ting\IMG_0178.JPG
+1520 968 456 452 0.286 0.253 0.770 0.209 0.258 0.268 0.747 0.226 169
+\\dpufsrv\data\Images\faceDetect\LLdata\SetTwo\Ting\IMG_0327.JPG
+1168 980 368 372 0.273 0.258 0.719 0.253 0.279 0.275 0.718 0.257 169
+\\dpufsrv\data\Images\faceDetect\LLdata\SetTwo\Ting\IMG_0329.JPG
+1196 1076 368 372 0.284 0.229 0.750 0.203 0.277 0.270 0.741 0.235 169
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Ting\IMG_0718.JPG
+1324 1120 272 272 0.265 0.283 0.778 0.271 0.261 0.286 0.747 0.263 169
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Ting\IMG_0719.JPG
+1324 1132 288 292 0.290 0.292 0.760 0.287 0.284 0.312 0.743 0.297 169
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Ting\IMG_0720.JPG
+1340 1136 264 264 0.242 0.265 0.750 0.257 0.252 0.267 0.753 0.256 169
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Ting\IMG_0722.JPG
+1212 1088 272 272 0.271 0.266 0.758 0.308 0.269 0.268 0.758 0.303 169
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Sidd\IMG_0501.JPG
+1268 908 308 308 0.235 0.286 0.773 0.269 0.245 0.270 0.751 0.267 172
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Sidd\IMG_0503.JPG
+1360 1036 292 292 0.209 0.168 0.784 0.270 0.293 0.201 0.740 0.261 172
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Sidd\IMG_0771.JPG
+1392 1000 220 220 0.244 0.318 0.781 0.261 0.266 0.308 0.770 0.270 172
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Sidd\IMG_0774.JPG
+1396 1028 284 284 0.213 0.241 0.735 0.236 0.256 0.247 0.743 0.259 172
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Sidd\IMG_0775.JPG
+1464 1040 304 304 0.239 0.287 0.765 0.235 0.242 0.283 0.712 0.241 172
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Sidd\IMG_0777.JPG
+1364 1156 296 296 0.311 0.290 0.794 0.218 0.320 0.305 0.767 0.240 172
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Sidd\IMG_0782.JPG
+1480 932 252 248 0.280 0.272 0.772 0.249 0.268 0.262 0.757 0.256 172
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Sidd\IMG_0783.JPG
+1440 1052 256 260 0.307 0.217 0.813 0.187 0.304 0.235 0.770 0.209 172
+\\dpufsrv\data\Images\faceDetect\LLdata\SetOne\Naoko\IMG_0211.JPG
+1328 908 516 512 0.251 0.285 0.732 0.169 0.263 0.319 0.748 0.197 177
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Naoko\IMG_0640.JPG
+1248 880 300 304 0.298 0.219 0.747 0.261 0.293 0.237 0.749 0.281 177
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Naoko\IMG_0646.JPG
+1188 1148 268 264 0.256 0.275 0.726 0.203 0.269 0.311 0.767 0.216 177
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Naoko\IMG_0877.JPG
+1336 904 292 292 0.301 0.233 0.704 0.181 0.285 0.260 0.693 0.221 177
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Naoko\IMG_0879.JPG
+1432 864 332 332 0.263 0.202 0.730 0.245 0.264 0.216 0.739 0.259 177
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Naoko\IMG_0880.JPG
+1428 912 320 316 0.334 0.268 0.726 0.223 0.310 0.278 0.727 0.246 177
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Naoko\IMG_0883.JPG
+1400 888 356 356 0.265 0.205 0.738 0.237 0.279 0.222 0.749 0.247 177
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Naoko\IMG_0884.JPG
+1348 1196 352 352 0.293 0.225 0.757 0.247 0.302 0.231 0.768 0.252 177
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Naoko\IMG_0885.JPG
+1328 1380 348 348 0.292 0.228 0.742 0.224 0.277 0.247 0.736 0.240 177
+\\dpufsrv\data\Images\faceDetect\LLdata\SetOne\Mukund\IMG_0247.JPG
+1044 696 532 536 0.254 0.363 0.705 0.199 0.306 0.337 0.705 0.209 178
+\\dpufsrv\data\Images\faceDetect\LLdata\SetTwo\Mukund\IMG_0290.JPG
+1460 1008 376 376 0.247 0.241 0.732 0.198 0.238 0.241 0.742 0.203 178
+\\dpufsrv\data\Images\faceDetect\LLdata\SetTwo\Mukund\IMG_0291.JPG
+1376 976 404 400 0.258 0.195 0.725 0.267 0.274 0.206 0.750 0.262 178
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Mukund\IMG_0490.JPG
+1272 944 288 288 0.264 0.226 0.785 0.205 0.254 0.240 0.728 0.231 178
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Mukund\IMG_0498.JPG
+1200 1044 336 332 0.283 0.216 0.791 0.304 0.292 0.226 0.766 0.310 178
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Mukund\IMG_0499.JPG
+1044 1040 360 364 0.284 0.311 0.729 0.237 0.291 0.319 0.717 0.248 178
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Mukund\IMG_0864.JPG
+1516 976 236 240 0.258 0.250 0.754 0.254 0.264 0.251 0.748 0.257 178
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Mukund\IMG_0868.JPG
+1568 1180 248 248 0.333 0.228 0.785 0.339 0.338 0.231 0.765 0.332 178
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Mukund\IMG_0869.JPG
+1568 840 292 292 0.359 0.167 0.822 0.306 0.336 0.198 0.833 0.327 178
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Mukund\IMG_0870.JPG
+1220 872 328 332 0.320 0.259 0.695 0.325 0.282 0.260 0.684 0.321 178
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Mukund\IMG_0871.JPG
+1220 896 292 292 0.329 0.247 0.753 0.373 0.313 0.240 0.744 0.408 178
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Mukund\IMG_0872.JPG
+1408 888 312 312 0.290 0.212 0.744 0.290 0.294 0.238 0.735 0.310 178
+\\dpufsrv\data\Images\faceDetect\LLdata\SetOne\Max\IMG_0170.JPG
+1212 672 536 532 0.292 0.267 0.696 0.246 0.284 0.305 0.706 0.279 179
+\\dpufsrv\data\Images\faceDetect\LLdata\SetOne\Max\IMG_0174.JPG
+1228 928 524 524 0.296 0.276 0.756 0.173 0.296 0.297 0.719 0.250 179
+\\dpufsrv\data\Images\faceDetect\LLdata\SetTwo\Max\IMG_0446.JPG
+1304 852 316 320 0.309 0.256 0.724 0.231 0.290 0.290 0.727 0.273 179
+\\dpufsrv\data\Images\faceDetect\LLdata\SetTwo\Max\IMG_0452.JPG
+1464 1056 308 308 0.249 0.251 0.716 0.238 0.251 0.285 0.722 0.272 179
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Max\IMG_0572.JPG
+1272 916 256 252 0.295 0.256 0.698 0.228 0.297 0.263 0.713 0.244 179
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Max\IMG_0573.JPG
+1244 956 368 368 0.272 0.219 0.663 0.242 0.231 0.253 0.670 0.252 179
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Max\IMG_0574.JPG
+1256 896 328 324 0.269 0.255 0.692 0.227 0.289 0.284 0.711 0.255 179
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Max\IMG_0580.JPG
+1284 800 396 396 0.328 0.283 0.737 0.285 0.320 0.284 0.761 0.293 179
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Max\IMG_0582.JPG
+1236 1060 272 268 0.299 0.230 0.733 0.268 0.300 0.254 0.746 0.314 179
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Max\IMG_0583.JPG
+1220 1200 268 264 0.288 0.244 0.699 0.261 0.303 0.270 0.732 0.289 179
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Max\IMG_0584.JPG
+1408 996 252 252 0.353 0.256 0.751 0.284 0.321 0.263 0.759 0.301 179
+\\dpufsrv\data\Images\faceDetect\LLdata\SetOne\Kumar\IMG_0144.JPG
+1312 788 464 464 0.301 0.303 0.733 0.307 0.302 0.308 0.731 0.296 180
+\\dpufsrv\data\Images\faceDetect\LLdata\SetOne\Kumar\IMG_0145.JPG
+1240 688 488 488 0.280 0.306 0.733 0.306 0.276 0.295 0.715 0.308 180
+\\dpufsrv\data\Images\faceDetect\LLdata\SetTwo\Kumar\IMG_0278.JPG
+1348 940 404 400 0.339 0.263 0.758 0.249 0.320 0.257 0.759 0.277 180
+\\dpufsrv\data\Images\faceDetect\LLdata\SetTwo\Kumar\IMG_0279.JPG
+1276 876 388 388 0.260 0.255 0.747 0.264 0.290 0.252 0.762 0.275 180
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Kumar\IMG_0699.JPG
+1396 772 412 412 0.303 0.321 0.759 0.276 0.307 0.350 0.757 0.285 180
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Kumar\IMG_0700.JPG
+1164 836 456 456 0.317 0.293 0.735 0.321 0.316 0.254 0.744 0.307 180
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Kumar\IMG_0701.JPG
+1240 716 476 480 0.296 0.307 0.767 0.330 0.283 0.298 0.754 0.316 180
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Kumar\IMG_0708.JPG
+1232 924 572 572 0.319 0.259 0.659 0.253 0.292 0.267 0.694 0.265 180
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Kumar\IMG_0711.JPG
+1168 840 460 460 0.361 0.273 0.757 0.297 0.333 0.251 0.741 0.288 180
+\\dpufsrv\data\Images\faceDetect\LLdata\SetOne\Jong\IMG_0167.JPG
+1568 1052 292 292 0.226 0.259 0.867 0.181 0.257 0.243 0.802 0.227 181
+\\dpufsrv\data\Images\faceDetect\LLdata\SetTwo\Jong\IMG_0336.JPG
+1544 1040 264 264 0.286 0.271 0.783 0.211 0.310 0.289 0.762 0.250 181
+\\dpufsrv\data\Images\faceDetect\LLdata\SetTwo\Jong\IMG_0337.JPG
+1432 1188 288 288 0.252 0.224 0.722 0.255 0.284 0.238 0.734 0.256 181
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Jong\IMG_0559.JPG
+1400 1176 292 292 0.286 0.239 0.735 0.181 0.282 0.250 0.735 0.213 181
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Jong\IMG_0561.JPG
+1512 1080 368 368 0.283 0.234 0.666 0.304 0.276 0.260 0.698 0.308 181
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Jong\IMG_0819.JPG
+1416 1000 320 320 0.238 0.231 0.733 0.237 0.245 0.242 0.744 0.252 181
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Jong\IMG_0822.JPG
+1388 716 292 292 0.282 0.198 0.721 0.219 0.299 0.222 0.716 0.227 181
+\\dpufsrv\data\Images\faceDetect\LLdata\SetTwo\Chau\IMG_0259.JPG
+1320 1060 316 320 0.255 0.288 0.743 0.175 0.265 0.320 0.744 0.205 184
+\\dpufsrv\data\Images\faceDetect\LLdata\SetTwo\Chau\IMG_0260.JPG
+1300 1028 316 316 0.203 0.243 0.739 0.225 0.247 0.266 0.748 0.249 184
+\\dpufsrv\data\Images\faceDetect\LLdata\SetTwo\Chau\IMG_0263.JPG
+1408 1232 332 328 0.174 0.278 0.801 0.195 0.240 0.272 0.782 0.207 184
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Chau\IMG_0465.JPG
+1380 1028 360 360 0.276 0.253 0.732 0.213 0.313 0.253 0.742 0.242 184
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Chau\IMG_0466.JPG
+1204 1084 456 456 0.336 0.324 0.796 0.154 0.325 0.334 0.748 0.237 184
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Chau\IMG_0469.JPG
+1316 1048 292 292 0.291 0.200 0.769 0.166 0.288 0.230 0.736 0.196 184
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Chau\IMG_0752.JPG
+1312 1136 372 368 0.217 0.224 0.713 0.185 0.249 0.271 0.704 0.218 184
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Chau\IMG_0755.JPG
+1420 820 344 344 0.212 0.229 0.701 0.177 0.262 0.261 0.710 0.193 184
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Chau\IMG_0758.JPG
+1372 956 360 360 0.274 0.254 0.772 0.179 0.273 0.287 0.768 0.209 184
+\\dpufsrv\data\Images\faceDetect\LLdata\SetOne\Alexey\IMG_0193.JPG
+1200 864 512 508 0.267 0.248 0.723 0.248 0.262 0.261 0.739 0.250 189
+\\dpufsrv\data\Images\faceDetect\LLdata\SetOne\Alexey\IMG_0198.JPG
+1432 1236 496 500 0.248 0.212 0.744 0.171 0.289 0.237 0.755 0.213 189
+\\dpufsrv\data\Images\faceDetect\LLdata\SetTwo\Alexey\IMG_0294.JPG
+1416 1024 356 356 0.282 0.199 0.766 0.239 0.266 0.213 0.754 0.259 189
+\\dpufsrv\data\Images\faceDetect\LLdata\SetTwo\Alexey\IMG_0295.JPG
+1416 980 388 388 0.280 0.214 0.739 0.242 0.277 0.243 0.725 0.260 189
+\\dpufsrv\data\Images\faceDetect\LLdata\SetTwo\Alexey\IMG_0297.JPG
+1384 976 328 332 0.200 0.235 0.698 0.177 0.243 0.248 0.729 0.193 189
+\\dpufsrv\data\Images\faceDetect\LLdata\SetThree\Alexey\IMG_0667.JPG
+1324 1012 360 360 0.277 0.244 0.717 0.226 0.279 0.250 0.731 0.232 189
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Alexey\IMG_0838.JPG
+1420 952 396 396 0.273 0.290 0.673 0.274 0.292 0.310 0.716 0.283 189
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Alexey\IMG_0839.JPG
+1260 936 368 368 0.281 0.263 0.629 0.312 0.192 0.328 0.626 0.340 189
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Alexey\IMG_0846.JPG
+1436 1060 300 296 0.276 0.246 0.727 0.250 0.260 0.248 0.749 0.246 189
+\\dpufsrv\data\Images\faceDetect\LLdata\SetFour\Alexey\IMG_0847.JPG
+1300 1152 360 360 0.258 0.252 0.697 0.224 0.270 0.262 0.731 0.241 189
