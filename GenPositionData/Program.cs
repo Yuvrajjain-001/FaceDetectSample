@@ -1,16 +1,26 @@
+using LibFaceData;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using FaceSortUI;
 using DetectionManagedLib;
 using System.Windows;
+using System.Drawing.Imaging;
 using System.Windows.Media.Imaging;
 using System.IO;
-using Microsoft.LiveLabs;
+using NNTrainer;
 
 namespace GenPositionData
 {
-    class Program : BaseReco
+    class Program
+    {
+        static public void Main(string[] args)
+        {
+            GenReco genReco = new GenReco();
+            genReco.Run(args);
+        }
+    }
+
+    class GenReco : BaseReco
     {
         enum ProgActions { GenerateEyeFaceData, FaceDetect, GenerateEyePatchData, GenerateRecoData };
 
@@ -25,17 +35,18 @@ namespace GenPositionData
         static private int _maxTransformCount;
         static private TransformSample _transform = new TransformSample();
         static private double[] _meanEye = { 0.29, 0.27, 0.72, 0.27 };
-        static private TrainDataFileWriter _outWriter = null;
+        static private NNTrainer.TrainDataFileWriter _outWriter = null;
         static private StreamWriter _outStream = null;
         static private int _numPatchFeatures = 4;   // Eye, Nose, LeftMouth, RightMouth
 
-        static void Main(string[] args)
+        public void Run(string[] args)
         {
             float detectionThresh = 0.0F;
-            string classifierPath = "classifier.txt";
-            int  iArg = 0;
+            string classifierPath = @"G:\src\Face\FaceDetect\Classifier\classifier.txt";
+            int iArg = 0;
             string outFile = "out.Txt";
             bool preDetect = false;
+            int sentimentLabel = -1;
 
             _normalizeAction = NormalizeActionsEnum.None;
 
@@ -77,7 +88,7 @@ namespace GenPositionData
                     case "-noneyepatchcount":
                         _nonEyePatchCount = Convert.ToInt32(args[iArg++]);
                         break;
-                        
+
                     case "-detectpath":
                         classifierPath = args[iArg++];
                         break;
@@ -168,6 +179,10 @@ namespace GenPositionData
                         outFile = args[iArg++];
                         break;
 
+                    case "-sentimentlabel":
+                        sentimentLabel = Convert.ToInt32(args[iArg++]);
+                        break;
+
                     case "-h":
                         Usage();
                         return;
@@ -190,8 +205,8 @@ namespace GenPositionData
 
             string suiteFile = args[iArg];
 
-            try
-            {
+            //try
+            //{
                 if (System.IO.File.Exists(suiteFile) == false)
                 {
                     Console.WriteLine("Cannot open suiteFile {0}\n", suiteFile);
@@ -202,20 +217,25 @@ namespace GenPositionData
                 {
                     DoPreDetectSuiteFile(suiteFile);
                 }
+                else if (sentimentLabel >= 0)
+                {
+                    _detector = new FaceDetector(classifierPath, true, detectionThresh);
+                    DoSentimentSuiteFile(suiteFile, sentimentLabel);
+                }
                 else
                 {
                     _detector = new FaceDetector(classifierPath, true, detectionThresh);
                     DoSuiteFile(suiteFile);
                 }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error {0}", e.Message);
-                if (null != e.InnerException)
-                {
-                    Console.WriteLine("{0}", e.InnerException.Message);
-                }
-            }
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine("Error {0}", e.Message);
+            //    if (null != e.InnerException)
+            //    {
+            //        Console.WriteLine("{0}", e.InnerException.Message);
+            //    }
+            //}
 
             if (null != _outWriter)
             {
@@ -283,7 +303,7 @@ namespace GenPositionData
         }
 
 
-        static private void DoSuiteFile(string suiteFile)
+        private void DoSuiteFile(string suiteFile)
         {
             FileInfo fileInfo = new FileInfo(suiteFile);
 
@@ -306,13 +326,13 @@ namespace GenPositionData
             Console.WriteLine("");
         }
 
-        static private int DoPreDetectSuiteFile(string suiteFile)
+        private int DoPreDetectSuiteFile(string suiteFile)
         {
-            FaceDisp.FaceDataFile suiteReader = null;
+            LibFaceData.FaceDataFile suiteReader = null;
 
             try
             {
-                suiteReader = new FaceDisp.FaceDataFile(suiteFile, FaceDisp.FaceData.FaceDataTypeEnum.EyeDetect);
+                suiteReader = new LibFaceData.FaceDataFile(suiteFile, LibFaceData.FaceData.FaceDataTypeEnum.EyeDetect);
             }
             catch (Exception e)
             {
@@ -324,7 +344,7 @@ namespace GenPositionData
                 return 0;
             }
 
-            FaceDisp.FaceData faceData = null;
+            LibFaceData.FaceData faceData = null;
             int imageCount = 0;
             while ((faceData = suiteReader.GetNext()) != null)
             {
@@ -343,7 +363,144 @@ namespace GenPositionData
             Console.WriteLine();
             return imageCount;
         }
-        static private int GenerateData(string imageFileName, List<FeaturePts> featureList)
+
+        private int DoSentimentSuiteFile(string suiteFile, int label = 0)
+        {
+            StreamReader sr = File.OpenText(suiteFile);
+            double eyeFrac = 0.6;       // Width between eyes as frac of extraction
+            double eyeToMouthFrac = 0.6; // Eye to mouth fraction of extracted height
+            double[] targets = { (double)label };
+
+            string line;
+            int exCount = 0;
+            int imageCount = 0;
+
+            while (null != (line = sr.ReadLine()))
+            {
+                try
+                {
+                    System.Drawing.Image photoImage = System.Drawing.Image.FromFile(line);
+                    System.Drawing.Bitmap bitmap = new System.Drawing.Bitmap(photoImage);
+                    BitmapData bitmapdata = bitmap.LockBits(new System.Drawing.Rectangle(0, 0, bitmap.Width, bitmap.Height),
+                                                        System.Drawing.Imaging.ImageLockMode.ReadOnly, bitmap.PixelFormat);
+
+                    DetectionResult detectionResult = _detector.DetectObject(bitmapdata);
+                    List<ScoredRect> scoredResultList = detectionResult.GetMergedRectList(0.0F);
+                    if (scoredResultList.Count > 0)
+                    {
+                        ++imageCount;
+                    }
+                    int bytes = bitmapdata.Stride * bitmapdata.Height;
+                    byte[] rgbValues = new byte[bytes];
+
+                    // Copy the RGB values into the array.
+                    System.Runtime.InteropServices.Marshal.Copy(bitmapdata.Scan0, rgbValues, 0, bytes);
+                    EyeDetect eyeDetect = new EyeDetect();
+                    int i = 0;
+                    Rect origRect = new Rect(0, 0, bitmap.Width, bitmap.Height);
+
+                    foreach (ScoredRect r in scoredResultList)
+                    {
+                        System.Drawing.Rectangle faceRect = new System.Drawing.Rectangle(r.X, r.Y, r.Width, r.Height);
+
+                        // This is fairly inefficient as the the face must first be extracted and scaled before eye detecion is run
+
+                        FaceFeatureResult faceResult = eyeDetect.Detect(rgbValues, bitmap.Width, bitmap.Height, bitmapdata.Stride, faceRect) as FaceFeatureResult;
+
+                        int width = Convert.ToInt32((faceResult.RightEye.X - faceResult.LeftEye.X) / eyeFrac);
+                        int height = Convert.ToInt32(((faceResult.LeftMouth.Y + faceResult.RightMouth.Y) - (faceResult.RightEye.Y + faceResult.LeftEye.Y)) / eyeToMouthFrac / 2);
+                        int leftX = Convert.ToInt32(faceResult.LeftEye.X - ((1.0 - eyeFrac) / 2.0 * width));
+                        int leftY = Convert.ToInt32((faceResult.LeftEye.Y + faceResult.RightEye.Y) / 2.0 -
+                                                    ((1 - eyeToMouthFrac) / 2.0 * height));
+                        if (leftX < 0 || leftY < 0)
+                        {
+                            continue;
+                        }
+
+                        System.Drawing.Rectangle scaleRect = new System.Drawing.Rectangle(leftX, leftY, width, height);
+                        int bytePerPixel = rgbValues.Length / (bitmap.Width * bitmap.Height);
+                        byte[] scaledData = eyeDetect.ScaleImage(rgbValues, bitmap.Width, bitmap.Height, bitmapdata.Stride, scaleRect, bytePerPixel);
+                        this.SaveSentimentResult(scaledData, targets, line, i);
+
+                        Rect faceRect1 = new Rect(faceRect.X, faceRect.Y, faceRect.Width, faceRect.Height);
+
+                        _transform.Reset();
+                        _transform.SetImageSize(faceRect1);
+                        FaceData origFace = new FaceData(faceResult.LeftEye, faceResult.RightEye, faceResult.Nose, faceResult.LeftMouth, faceResult.RightMouth);
+                        origFace.faceRect = faceRect;
+
+                        for (int j = 0; j < _maxTransformCount; ++j)
+                        {
+                            try
+                            {
+                                _transform.Generate();
+
+                                byte[] facePixs = TransformSample.ExtractTransformNormalizeFace(
+                                            rgbValues,
+                                            origRect,
+                                            bytePerPixel,
+                                            bitmapdata.Stride,
+                                            faceRect1,
+                                            faceRect1,
+                                            (int)faceRect1.Width * 4,
+                                            _transform);
+
+                                FaceData txfFace = RotateFaceFeats(origFace, _transform);
+
+                                width = Convert.ToInt32((txfFace.TrueRightEye.X - txfFace.TrueLeftEye.X) / eyeFrac);
+                                height = Convert.ToInt32(((txfFace.LeftMouth.Y + txfFace.RightMouth.Y) - (txfFace.TrueRightEye.Y + txfFace.TrueLeftEye.Y)) / eyeToMouthFrac / 2);
+                                leftX = Convert.ToInt32(txfFace.TrueLeftEye.X - ((1.0 - eyeFrac) / 2.0 * width) - faceRect.X);
+                                leftY = Convert.ToInt32((txfFace.TrueLeftEye.Y + txfFace.TrueRightEye.Y) / 2.0 -
+                                                            ((1 - eyeToMouthFrac) / 2.0 * height) - faceRect.Y);
+
+
+                                if (leftX >= 0 && leftY >= 0)
+                                {
+                                    scaleRect = new System.Drawing.Rectangle(leftX, leftY, width, height);
+                                    //scaledData = eyeDetect.ScaleImage(facePixs, faceRect.Width, faceRect.Height, bitmapdata.Stride, scaleRect, bytePerPixel);
+                                    //System.Drawing.Rectangle scaleRect1 = new System.Drawing.Rectangle(0, 0, width, height);
+                                    scaledData = eyeDetect.ScaleImage(facePixs, faceRect.Width, faceRect.Height, faceRect.Width * 4, scaleRect, bytePerPixel);
+
+                                    ++i;
+                                    //string name = Path.Combine("tmpImages", Path.GetFileNameWithoutExtension(line) + "orig" + "_" + Convert.ToString(i) + ".jpg");
+                                    //System.Windows.Media.PixelFormat f = System.Windows.Media.PixelFormats.Bgra32;
+                                    //Rect faceRect2 = new Rect(0, 0, faceRect.Width, faceRect.Height);
+                                    //this.SaveAsJpeg(facePixs, faceRect2, name, string.Empty, f, 4);
+                                    this.SaveSentimentResult(scaledData, targets, line, i);
+                                }
+                            }
+                            catch (Exception e)
+                            {
+                                //Console.WriteLine(e.Message);
+                            }
+                        }
+
+                        ++exCount;
+                    }
+
+                    Console.Write("Number of faces {0} Number of images {1}\r", exCount, imageCount);
+
+                    bitmap.UnlockBits(bitmapdata);
+                }
+                catch (Exception e1)
+                {
+
+                }
+            }
+
+            Console.WriteLine("Number of faces {0} Number of images {1}", exCount, imageCount);
+            return exCount;
+        }
+
+        private void SaveSentimentResult(byte [] scaledData, double [] targets, string file, int i)
+        {
+            _outWriter.WriteSample(scaledData, targets);
+            //string name = Path.Combine("tmpImages", Path.GetFileNameWithoutExtension(file) + "_" + Convert.ToString(i) + ".jpg");
+            //Rect scaleRect1 = new Rect(0, 0, 41, 41);
+            //this.SaveAsJpeg(scaledData, scaleRect1, name, string.Empty, System.Windows.Media.PixelFormats.Gray8, 1);
+        }
+
+        private int GenerateData(string imageFileName, List<FeaturePts> featureList)
         {
             if (null == imageFileName)
             {
@@ -380,10 +537,10 @@ namespace GenPositionData
                             leftEye.Y = (leftEye.Y - rect.Y) / rect.Width; ;
                             rightEye.X = (rightEye.X - rect.X) / rect.Width; ;
                             rightEye.Y = (rightEye.Y - rect.Y) / rect.Width; ;
-                            FaceDisp.FaceData faceData = new FaceDisp.FaceData(features.ptLeftEye, 
-                                                                                features.ptRightEye, 
-                                                                                features.ptNose, 
-                                                                                features.ptLeftMouth, 
+                            LibFaceData.FaceData faceData = new LibFaceData.FaceData(features.ptLeftEye,
+                                                                                features.ptRightEye,
+                                                                                features.ptNose,
+                                                                                features.ptLeftMouth,
                                                                                 features.ptRightMouth,
                                                                                 rect);
 
@@ -401,8 +558,8 @@ namespace GenPositionData
 
 
 
-        //static private bool ProcessFace(string filename, Rect rect, Point leftEye, Point rightEye, int photoId)
-        static private bool ProcessFace(string filename, Rect rect, FaceDisp.FaceData faceData, int photoId)
+        //private bool ProcessFace(string filename, Rect rect, Point leftEye, Point rightEye, int photoId)
+        private bool ProcessFace(string filename, Rect rect, FaceData faceData, int photoId)
         {
             byte[] dataPixs = null;
 
@@ -422,7 +579,7 @@ namespace GenPositionData
 
             byte[] facePix = SelectAndNormalizePatch(dataPixs,
                            new Point(rect.X, rect.Y), new Point(rect.X + rect.Width, rect.Y),
-                           new Point(0, 0), new Point(_faceDisplayWidth, 0),new Rect(0, 0, _faceDisplayWidth, _faceDisplayHeight));
+                           new Point(0, 0), new Point(_faceDisplayWidth, 0), new Rect(0, 0, _faceDisplayWidth, _faceDisplayHeight));
 
 
             if (null == facePix)
@@ -431,7 +588,7 @@ namespace GenPositionData
                 return false;
             }
 
-            Rect faceRect = new Rect(0, 0, _faceDisplayWidth, _faceDisplayHeight);
+            Rect faceRect = new Rect(0, 0, this._faceDisplayWidth, this._faceDisplayHeight);
 
             _transform.Reset();
             _transform.SetImageSize(rect);
@@ -456,8 +613,8 @@ namespace GenPositionData
             return retVal;
         }
 
-        //static private bool ProcessFaceInstance(byte[] facePix, string filename, Rect rect, Point leftEye, Point rightEye, Rect faceRect, int photoId)
-        static private bool ProcessFaceInstance(byte[] facePix, string filename, Rect rect, FaceDisp.FaceData faceData, Rect faceRect, int photoId)
+        //private bool ProcessFaceInstance(byte[] facePix, string filename, Rect rect, Point leftEye, Point rightEye, Rect faceRect, int photoId)
+        private bool ProcessFaceInstance(byte[] facePix, string filename, Rect rect, FaceData faceData, Rect faceRect, int photoId)
         {
             facePix = ConvertToGreyScale(facePix);
 
@@ -483,11 +640,11 @@ namespace GenPositionData
             return true;
         }
 
-        static private FaceDisp.FaceData RotateFaceFeats(FaceDisp.FaceData faceData, TransformSample trans)
+        private FaceData RotateFaceFeats(FaceData faceData, TransformSample trans)
         {
             Rect faceRect = new Rect(faceData.faceRect.X, faceData.faceRect.Y, faceData.faceRect.Width, faceData.faceRect.Height);
 
-            return new FaceDisp.FaceData(RotateRawEye(faceData.TrueLeftEye, faceRect, trans),
+            return new FaceData(RotateRawEye(faceData.TrueLeftEye, faceRect, trans),
                                             RotateRawEye(faceData.TrueRightEye, faceRect, trans),
                                             RotateRawEye(faceData.Nose, faceRect, trans),
                                             RotateRawEye(faceData.LeftMouth, faceRect, trans),
@@ -501,7 +658,7 @@ namespace GenPositionData
         /// <param name="faceRect"></param>
         /// <param name="trans"></param>
         /// <returns></returns>
-        static private Point RotateRawEye(System.Windows.Point eye, Rect faceRect, TransformSample trans)
+        private Point RotateRawEye(System.Windows.Point eye, Rect faceRect, TransformSample trans)
         {
             Point point = FaceFeatureToScaledPoint(eye, faceRect);
             point = RotateEye(point, trans);
@@ -509,7 +666,7 @@ namespace GenPositionData
 
 
         }
-        static private Point RotateEye(System.Windows.Point eye, TransformSample trans)
+        private Point RotateEye(System.Windows.Point eye, TransformSample trans)
         {
             double theta = trans.ThetaRad;
             System.Windows.Point newCentre = new System.Windows.Point();
@@ -518,7 +675,7 @@ namespace GenPositionData
             return newCentre;
         }
 
-        static void WriteTrainDataAndTargets(byte[] facePix, Rect rect, FaceDisp.FaceData faceData)
+        void WriteTrainDataAndTargets(byte[] facePix, Rect rect, FaceData faceData)
         {
             Point leftEye = FaceFeatureToScaledPoint(faceData.TrueLeftEye, rect);
             Point rightEye = FaceFeatureToScaledPoint(faceData.TrueRightEye, rect);
@@ -526,17 +683,17 @@ namespace GenPositionData
             Point leftMouth = FaceFeatureToScaledPoint(faceData.LeftMouth, rect);
             Point rightMouth = FaceFeatureToScaledPoint(faceData.RightMouth, rect);
 
-            double[] eyes = { leftEye.X, leftEye.Y, rightEye.X, rightEye.Y, nose.X, nose.Y, leftMouth.X, leftMouth.Y, rightMouth.X, rightMouth.Y};
+            double[] eyes = { leftEye.X, leftEye.Y, rightEye.X, rightEye.Y, nose.X, nose.Y, leftMouth.X, leftMouth.Y, rightMouth.X, rightMouth.Y };
             _outWriter.WriteSample(facePix, eyes);
         }
 
-        static void WriteTrainDataIdTarget(byte[] facePix, int id)
+        void WriteTrainDataIdTarget(byte[] facePix, int id)
         {
             double[] targets = { (double)id };
             _outWriter.WriteSample(facePix, targets);
         }
 
-        static void WriteEyePatches(Point leftEye, Point rightEye, ref byte[] facePix)
+        void WriteEyePatches(Point leftEye, Point rightEye, ref byte[] facePix)
         {
             WriteOneEye(leftEye, 0, _numPatchFeatures, ref facePix);
             WriteOneEye(rightEye, 0, _numPatchFeatures, ref facePix);
@@ -571,7 +728,7 @@ namespace GenPositionData
 
         }
 
-        static void WriteFeaturePatches(Rect rect, FaceDisp.FaceData faceData, ref byte[] facePix)
+        void WriteFeaturePatches(Rect rect, FaceData faceData, ref byte[] facePix)
         {
             Point leftEye = FaceFeatureToScaledPoint(faceData.TrueLeftEye, rect);
             Point rightEye = FaceFeatureToScaledPoint(faceData.TrueRightEye, rect);
@@ -618,7 +775,7 @@ namespace GenPositionData
 
         }
 
-        static Rect GetPatchRect(Point pt)
+        Rect GetPatchRect(Point pt)
         {
             return new Rect(Math.Max(0, pt.X * _faceDisplayWidth - 3 * _eyePatchWidth / 2 + 1),
                             Math.Max(0, pt.Y * _faceDisplayHeight - 3 * _eyePatchHeight / 2 + 1),
@@ -633,7 +790,7 @@ namespace GenPositionData
         /// </summary>
         /// <param name="eye">Center of data</param>
         /// <param name="facePix">Face data</param>
-        static void WriteOneEye(Point eye, int patchId, int patchCount, ref byte[] facePix)
+        void WriteOneEye(Point eye, int patchId, int patchCount, ref byte[] facePix)
         {
             int eyeCenterX = (int)Math.Round(eye.X * _faceDisplayWidth);
             int eyeCenterY = (int)Math.Round(eye.Y * _faceDisplayHeight);
@@ -645,7 +802,7 @@ namespace GenPositionData
             int refPatchTop = (int)Math.Ceiling(eyeCenterY - _eyePatchHeight / 2);
             int refPatchLeft = (int)Math.Ceiling(eyeCenterX - _eyePatchWidth / 2);
 
-            if (patchTop < 0 || patchLeft < 0 || 
+            if (patchTop < 0 || patchLeft < 0 ||
                 maxPatchTop > _faceDisplayHeight || maxPatchLeft > _faceDisplayWidth)
             {
                 return;
@@ -683,7 +840,7 @@ namespace GenPositionData
         /// <param name="start2">Start column 2</param>
         /// <param name="len">Length of both pixedls</param>
         /// <returns>Number of pixel overlap</returns>
-        static private double Overlap(int start1, int start2, int len)
+        private double Overlap(int start1, int start2, int len)
         {
             double ret = len - Math.Abs(start1 - start2);
             ret = Math.Max(0, ret);
@@ -699,7 +856,7 @@ namespace GenPositionData
         /// <param name="patchPos">Patch location in the stream</param>
         /// <param name="eyeProb">"probability"  patch is an eye</param>
         /// <param name="facePix">Datastream representing the entire face</param>
-        static void WriteEyePatch(Rect patchPos, double[] eyeProbArray, ref byte[] facePix)
+        void WriteEyePatch(Rect patchPos, double[] eyeProbArray, ref byte[] facePix)
         {
             if (patchPos.Y + patchPos.Height < _faceDisplayHeight &&
                 patchPos.X + patchPos.Width < _faceDisplayWidth)
@@ -733,8 +890,8 @@ namespace GenPositionData
 
             }
         }
-        //static void RunDetection(string filename, Rect rect, Point leftEye, Point rightEye, ref byte [] facePix, Rect faceRect)
-        static void RunDetection(string filename, Rect rect, FaceDisp.FaceData faceData, ref byte [] facePix, Rect faceRect)
+        //void RunDetection(string filename, Rect rect, Point leftEye, Point rightEye, ref byte [] facePix, Rect faceRect)
+        void RunDetection(string filename, Rect rect, FaceData faceData, ref byte[] facePix, Rect faceRect)
         {
             EyeDetect eyeDetect = new EyeDetect();
             int byteCountPerPix = (int)(facePix.Length / faceRect.Width / faceRect.Height);
@@ -803,7 +960,7 @@ namespace GenPositionData
         /// <param name="faceRect">Where the faceRect is in the the image</param>
         /// <param name="theta">Amount to rotate (degrees)</param>
         /// <returns></returns>
-        static private byte[] SelectTransformPatch(byte[] dataPixs, Rect faceRect, TransformSample trans)
+        private byte[] SelectTransformPatch(byte[] dataPixs, Rect faceRect, TransformSample trans)
         {
 
             int bytePerPixel = _bitmap.Format.BitsPerPixel / 8;
@@ -820,7 +977,7 @@ namespace GenPositionData
         }
 
 
-        static private Point FaceFeatureToScaledPoint(System.Windows.Point featLoc, Rect faceRect)
+        private Point FaceFeatureToScaledPoint(System.Windows.Point featLoc, Rect faceRect)
         {
             Point retPoint = new Point(featLoc.X, featLoc.Y);
 
@@ -830,7 +987,7 @@ namespace GenPositionData
             return retPoint;
         }
 
-        static private Point ScalePointToFaceFeature(System.Windows.Point featLoc, Rect faceRect)
+        private Point ScalePointToFaceFeature(System.Windows.Point featLoc, Rect faceRect)
         {
             Point retPoint = new Point(featLoc.X, featLoc.Y);
 

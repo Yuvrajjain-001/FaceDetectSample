@@ -79,6 +79,7 @@ using namespace System::Windows;
         EyeDetectResult ^ Detect(array<Byte> ^inputImage, int width, int height, int stride, System::Drawing::Rectangle ^faceRect);
 
         bool SetAlgorithm(AlgorithmEnum algoType, String ^ dataFilename);
+		array<Byte> ^ ScaleImage(array<Byte> ^inputImage, int width, int height, int stride, System::Drawing::Rectangle ^extractRect, int bytePerPixel);
 
         property int ClassifierWidth { int get() { return m_iWidthNN;} };
         property int ClassifierHeight { int get() { return m_iHeightNN;} };
@@ -92,7 +93,6 @@ using namespace System::Windows;
 
         EyeDetectResult ^ DetectMSRA(array<Byte> ^inputImage, int width, int height, int bytePerPixel);
         EyeDetectResult ^ DetectNN(array<Byte> ^inputImage, int width, int height, int bytePerPixel);
-        array<Byte> ^ ScaleImage(array<Byte> ^inputImage, int width, int height, int stride, System::Drawing::Rectangle ^extractRect, int bytePerPixel);
         Byte BilinearTxfm(array<Byte> ^inputImage, int width, int stride, float x, float y, int bytePerPixel);
         Byte PixAt(array<Byte> ^inputImage, int stride, int x, int y, int iPlane, int bytePerPixel);
 

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -19,7 +19,7 @@
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -47,6 +47,7 @@
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -56,6 +57,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
     <PlatformTarget>x64</PlatformTarget>
@@ -63,6 +65,7 @@
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -75,6 +78,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -86,22 +90,22 @@
     <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
     <PlatformTarget>x64</PlatformTarget>
     <OutputPath>bin\x64\Debug\</OutputPath>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="arrayt, Version=1.0.3277.1, Culture=neutral, PublicKeyToken=d57b0d6d53cb1fc1, processorArchitecture=x86">
+    <Reference Include="ArrayT, Version=2.0.5.0, Culture=neutral, PublicKeyToken=d57b0d6d53cb1fc1, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\CollaborativeLibs_01\Sho\Bin\arrayt.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Sho 2.1\bin\bin32\ArrayT.dll</HintPath>
     </Reference>
-    <Reference Include="MatrixInterf, Version=1.0.3277.1, Culture=neutral, PublicKeyToken=1fa71b5ffec10e32, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\CollaborativeLibs_01\Sho\Bin\MatrixInterf.dll</HintPath>
-    </Reference>
+    <Reference Include="MatrixInterf, Version=2.0.5.0, Culture=neutral, PublicKeyToken=1fa71b5ffec10e32, processorArchitecture=MSIL" />
     <Reference Include="PresentationCore" />
+    <Reference Include="ShoArray, Version=2.0.5.0, Culture=neutral, PublicKeyToken=1635376d5e62ab5f, processorArchitecture=MSIL" />
     <Reference Include="SIFT_M, Version=1.0.2663.21632, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\user\ganghua\MiscLibs\SIFTM\SIFT_M.dll</HintPath>
@@ -120,29 +124,25 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\CollaborativeLibs_01\LibFaceDetect\DetectionManagedLib\LibFaceDetect.vcxproj">
+    <ProjectReference Include="..\..\tools\nnTcl\TrainData\Writer\Writer.csproj">
+      <Project>{0c57e07c-0e4a-4599-abc2-5dc464691cff}</Project>
+      <Name>Writer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DetectionManagedLib\LibFaceDetect.vcxproj">
       <Project>{8367CBB3-F55E-473B-9D3E-814A8BC38B19}</Project>
       <Name>LibFaceDetect</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\CollaborativeLibs_01\LibImage\LibImage_vs2005.csproj">
-      <Project>{088B2327-1594-4762-ADF9-409738344854}</Project>
-      <Name>LibImage_vs2005</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\tools\TrainData\Writer\Writer.csproj">
-      <Project>{0C57E07C-0E4A-4599-ABC2-5DC464691CFF}</Project>
-      <Name>Writer</Name>
     </ProjectReference>
     <ProjectReference Include="..\EyeDetect\EyeDetect.vcxproj">
       <Project>{E3278D97-9BCD-428D-B585-2F2E785314DB}</Project>
       <Name>EyeDetect</Name>
     </ProjectReference>
-    <ProjectReference Include="..\faceDisp\faceDisp.csproj">
-      <Project>{41573BED-3EE6-4FBB-9CB6-865647C1DB42}</Project>
-      <Name>faceDisp</Name>
+    <ProjectReference Include="..\ImageLibs\LibImage\LibImage.csproj">
+      <Project>{088b2327-1594-4762-adf9-409738344854}</Project>
+      <Name>LibImage</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FaceSortUI\FaceSortUI.csproj">
-      <Project>{7F9578B9-30C4-4E97-B85B-B2CA84681B78}</Project>
-      <Name>FaceSortUI</Name>
+    <ProjectReference Include="..\LibFaceData\LibFaceData.csproj">
+      <Project>{6da20dba-514f-408a-9c57-b367aceee173}</Project>
+      <Name>LibFaceData</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

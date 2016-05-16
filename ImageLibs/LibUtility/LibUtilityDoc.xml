@@ -1,0 +1,616 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LibUtility</name>
+    </assembly>
+    <members>
+        <member name="T:Dpu.Utility.AppRegistry">
+            <summary>
+            Summary description for AppRegistry.
+            </summary>
+        </member>
+        <member name="T:Dpu.Utility.ArrayUtils">
+            <summary>
+            Convenient set of array utilities
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.ArrayUtils.VectorInit(System.Double[],System.Double)">
+            <summary>
+            Provides for initialization of an array of doubles with a single value.
+            </summary>
+            <param name="vector">The array to initialize.</param>
+            <param name="initialValue">The initialization value.</param>
+            <returns>A pointer to the input array.</returns>
+        </member>
+        <member name="M:Dpu.Utility.ArrayUtils.VectorInit(System.Int32[],System.Int32)">
+            <summary>
+            Provides for initialization of an array of int types with a single value.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.ArrayUtils.VectorInit(System.Single[],System.Single)">
+            <summary>
+            Provides for initialization of an array of floats with a single value.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.ArrayUtils.MatrixInit(System.Single[0:,0:],System.Single)">
+            <summary>
+            Provides for initialization of a 2 dimensional array of floats with a single value.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.ArrayUtils.MatrixInit(System.Double[0:,0:],System.Double)">
+            <summary>
+            Provides for initialization of a 2 dimensional array of doubles with a single value.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.ArrayUtils.MakeVectorDouble(System.Int32,System.Double)">
+            <summary>
+            Creates an array of size doubles and initializes them to initialValue.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.ArrayUtils.MakeVectorInt(System.Int32,System.Int32)">
+            <summary>
+            Creates an array of size doubles and initializes them to initialValue.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.ArrayUtils.MakeMatrixDouble(System.Int32,System.Double)">
+            <summary>
+            Make a 2D array of doubles and intialized to scoreInit.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.ArrayUtils.MakeMatrixDouble(System.Int32,System.Int32,System.Double)">
+            <summary>
+            Make a 2D array of doubles of size[csize1,csize2] and intialized to scoreInit.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.ArrayUtils.MakeMatrixInt(System.Int32,System.Int32)">
+            <summary>
+            Make a 2D array of ints and intialized to init.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.ArrayUtils.MakeMatrixInt(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Make a 2D array of ints of size[cs1,cs2] and intialized to init.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.ArrayUtils.Log(System.Double[][],System.Double[][])">
+            <summary>
+            Calculate the natural log for every element in the 2D matrix input array.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.ArrayUtils.Log(System.Double[],System.Double[])">
+            <summary>
+            Calculate the natural log for every element in the vector input array.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.ArrayUtils.Exp(System.Single[],System.Single[])">
+            <summary>
+            Compute the value of e raised to each element of vector.  The result is returned directly and via result.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.ArrayUtils.Add(System.Double[],System.Double[],System.Double[])">
+            <summary>
+            Add the elements of vec1 and vec2 and return the result in result and as a return value.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.ArrayUtils.Add(System.Single[],System.Single[],System.Single[])">
+            <summary>
+            Add the elements of vec1 and vec2 and return the result in result and as a return value.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.ArrayUtils.Multiply(System.Double[],System.Double,System.Double[])">
+            <summary>
+            Multiply the elements of vector by scale and return the result in result and as a return value.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.ArrayUtils.Multiply(System.Single[],System.Single,System.Single[])">
+            <summary>
+            Multiply the elements of vector by scale and return the result in result and as a return value.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.ArrayUtils.Normalize(System.Double[],System.Double[])">
+            <summary>
+            Create a normalized array, result, based on the input values of vector.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.ArrayUtils.Normalize(System.Single[],System.Single[])">
+            <summary>
+            Create a normalized array, result, based on the input values of vector.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.ArrayUtils.VectorSum(System.Double[])">
+            <summary>
+            Compute the sum of all elements in the input array vector.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.ArrayUtils.VectorSum(System.Int32[])">
+            <summary>
+            Compute the sum of all elements in the input array vector.
+            </summary>
+        </member>
+        <member name="T:Dpu.Utility.IntEnumerator">
+            <summary>
+            Dumb enumerator that simply return a sequence of ints between min and max.
+            </summary>
+        </member>
+        <member name="T:Dpu.Utility.FastHashtableIF">
+            <summary>
+            Summary description for FastHash int to object.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableIF.Initialize">
+            <summary>
+            Initialize the hashtable to empty
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableIF.Copy(Dpu.Utility.FastHashtableIF)">
+            <summary>
+            Copy the entries from one hashtable to another. 
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableIF.DoubleSize">
+            <summary>
+            Double the internal size of the hashtable.  Done when load is too high.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableIF.Clone">
+            <summary>
+            Clone the entries from one hashtable to another.  Assumes the hashtables are internally identical
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableIF.Increment(Dpu.Utility.FastHashtableIF)">
+            <summary>
+            Increment the entries of the current hashtable with the entries of the argument.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableIF.Scale(System.Double)">
+            <summary>
+            Scale all defined entries by this quantity.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableIF.Find_Bucket(System.Int32)">
+            <summary>
+            Find the bucket that contains this key,  or a new one if key is absent.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableIF.Add(System.UInt32,System.Int32,System.Double)">
+            <summary>
+            Add the key bucket pair.  
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableIF.Insert(System.Int32,System.Double)">
+            <summary>
+            Insert the key/value pair
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableIF.Increment(System.Int32,System.Double,System.Double)">
+            <summary>
+            Increment the key's value by delta
+            </summary>
+            <param name="defaultValue">If the key is missing, then use this as the default value.</param>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableIF.Contains(System.Int32)">
+            <summary>
+            Is the key in the hashtable
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableIF.Fetch(System.Int32)">
+            <summary>
+            Fetch the value associated with the key.
+            </summary>
+        </member>
+        <member name="P:Dpu.Utility.FastHashtableIF.Item(System.Int32)">
+            <summary>
+            Perform associative lookup.  
+            </summary>
+        </member>
+        <member name="T:Dpu.Utility.FastHashtableIO">
+            <summary>
+            Summary description for FastHash int to object.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableIO.Initialize">
+            <summary>
+            Initialize the hashtable to empty
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableIO.Copy(Dpu.Utility.FastHashtableIO)">
+            <summary>
+            Copy the entries from one hashtable to another. 
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableIO.DoubleSize">
+            <summary>
+            Double the internal size of the hashtable.  Done when load is too high.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableIO.Clone">
+            <summary>
+            Clone the entries from one hashtable to another.  Assumes the hashtables are internally identical
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableIO.Find_Bucket(System.Int32)">
+            <summary>
+            Find the bucket that contains this key,  or a new one if key is absent.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableIO.Add(System.UInt32,System.Int32,System.Object)">
+            <summary>
+            Add the key bucket pair.  
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableIO.Insert(System.Int32,System.Object)">
+            <summary>
+            Insert the key/value pair
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableIO.Contains(System.Int32)">
+            <summary>
+            Is the key in the hashtable
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableIO.Fetch(System.Int32)">
+            <summary>
+            Fetch the value associated with the key.
+            </summary>
+        </member>
+        <member name="P:Dpu.Utility.FastHashtableIO.Item(System.Int32)">
+            <summary>
+            Perform associative lookup.  
+            </summary>
+        </member>
+        <member name="T:Dpu.Utility.FastHashtableOO">
+            <summary>
+            Summary description for FastHash int to object.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableOO.Initialize">
+            <summary>
+            Initialize the hashtable to empty
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableOO.Copy(Dpu.Utility.FastHashtableOO)">
+            <summary>
+            Copy the entries from one hashtable to another. 
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableOO.DoubleSize">
+            <summary>
+            Double the internal size of the hashtable.  Done when load is too high.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableOO.Clone">
+            <summary>
+            Clone the entries from one hashtable to another.  Assumes the hashtables are internally identical
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableOO.Find_Bucket(System.Object)">
+            <summary>
+            Find the bucket that contains this key,  or a new one if key is absent.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableOO.Add(System.UInt32,System.Object,System.Object)">
+            <summary>
+            Add the key bucket pair.  
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableOO.Insert(System.Object,System.Object)">
+            <summary>
+            Insert the key/value pair
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableOO.Contains(System.Object)">
+            <summary>
+            Is the key in the hashtable
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableOO.Fetch(System.Object)">
+            <summary>
+            Fetch the value associated with the key.
+            </summary>
+        </member>
+        <member name="P:Dpu.Utility.FastHashtableOO.Item(System.Object)">
+            <summary>
+            Perform associative lookup.  
+            </summary>
+        </member>
+        <member name="T:Dpu.Utility.ValueTuple">
+            <summary>
+            Useful object type which can be hashed quickly.  Inherit from this to get fast hashing performance
+            from the custom hashtable below.
+            </summary>
+        </member>
+        <member name="T:Dpu.Utility.FastHashtableTO">
+            <summary>
+            Summary description for FastHash int to object.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableTO.Initialize">
+            <summary>
+            Initialize the hashtable to empty
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableTO.Copy(Dpu.Utility.FastHashtableTO)">
+            <summary>
+            Copy the entries from one hashtable to another. 
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableTO.DoubleSize">
+            <summary>
+            Double the internal size of the hashtable.  Done when load is too high.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableTO.Clone">
+            <summary>
+            Clone the entries from one hashtable to another.  Assumes the hashtables are internally identical
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableTO.Find_Bucket(Dpu.Utility.ValueTuple)">
+            <summary>
+            Find the bucket that contains this key,  or a new one if key is absent.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableTO.Add(System.UInt32,Dpu.Utility.ValueTuple,System.Object)">
+            <summary>
+            Add the key bucket pair.  
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableTO.Insert(Dpu.Utility.ValueTuple,System.Object)">
+            <summary>
+            Insert the key/value pair
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableTO.Contains(Dpu.Utility.ValueTuple)">
+            <summary>
+            Is the key in the hashtable
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.FastHashtableTO.Fetch(Dpu.Utility.ValueTuple)">
+            <summary>
+            Fetch the value associated with the key.
+            </summary>
+        </member>
+        <member name="P:Dpu.Utility.FastHashtableTO.Item(Dpu.Utility.ValueTuple)">
+            <summary>
+            Perform associative lookup.  
+            </summary>
+        </member>
+        <member name="T:Dpu.Utility.FastTextSearcher">
+            <summary>
+            This class allows for the searching of a target string in a set of strings allowing for an 
+            error rate of a specified number of characters.
+            </summary>
+            
+        </member>
+        <member name="M:Dpu.Utility.FastTextSearcher.SetStringsToSearch(System.String[])">
+            <summary>
+            Set the set of strings to search.
+            </summary>
+            <param name="strings"></param>
+        </member>
+        <member name="M:Dpu.Utility.FastTextSearcher.BestMatches(System.String,System.Int32)">
+            <summary>
+            Returns all the matches of textToMatch in our input set allowing for at most numberOfErrorsAllowed.
+            </summary>
+            <param name="textToMatch">The string to search for</param>
+            <param name="numberOfErrorsAllowed">The maximum number of character errors allowed</param>
+            <returns>A list of all the matching strings and their error rate, sorted by ascending error, ascending string.
+            The Key of the DictionaryEntry is the string found and the Value is an int indicating the number of errors.
+            </returns>
+        </member>
+        <member name="P:Dpu.Utility.FastTextSearcher.CaseSensitive">
+            <summary>
+            Indicates whether character comparisons will be case sensitive or not.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Dpu.Utility.FastTextSearcher.FullTargetMatch">
+            <summary>
+            True = The entire target string must match within the number of errors.
+            False = Any portion of the target string can match within the number of errors.
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Dpu.Utility.FunctionMinimize">
+            <summary>
+            Summary description for FunctionMinimize.
+            </summary>
+        </member>
+        <member name="T:Dpu.Utility.IHasText">
+            <summary>
+            Summary description for IHasText.
+            </summary>
+        </member>
+        <member name="T:Dpu.Utility.IWeightedSet">
+            <summary>
+            Generic interface to algorithms which sample based on weight.
+            </summary>
+        </member>
+        <member name="T:Dpu.Utility.Sampling">
+            <summary>
+            Handy functions for sampling from weighted sets.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.Sampling.WeightedSum(Dpu.Utility.IWeightedSet)">
+            <summary>
+            Sum of the weights in the selected set.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.Sampling.SampleByWeight(Dpu.Utility.IWeightedSet,System.Int32)">
+            <summary>
+            Randomly sample elements by weight (from a weighted set).
+            </summary>
+            <param name="weightedSet">Weighted set</param>
+            <param name="total">Total number of examples to sample</param>
+        </member>
+        <member name="M:Dpu.Utility.Sampling.SampleByWeight(Dpu.Utility.IWeightedSet,System.Int32,System.Double)">
+            <summary>
+            Sample elements from a weighted set.  
+            </summary>
+            <param name="weightedSet">Weighted set</param>
+            <param name="total">Total number of examples to sample</param>
+            <param name="sum">Sum of the sampled examples.</param>
+        </member>
+        <member name="T:Dpu.Utility.Sampling.TestWeightedSet">
+            <summary>
+            Test class.
+            </summary>
+        </member>
+        <member name="T:Dpu.Utility.SerializationHelper">
+            <summary>
+            Utilities for more reasonable XML serialization
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.SerializationHelper.Serialize(System.Runtime.Serialization.SerializationInfo,System.Object)">
+            <summary>
+            Write out all the serializable member variables from 
+            "o" into "info", as defined by the IsSerializable() method.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.SerializationHelper.Deserialize(System.Runtime.Serialization.SerializationInfo,System.Object,System.Boolean)">
+            <summary>
+            Read in all of the member variables from "info" into "o".
+            If certain variables are not defined, the exceptions will
+            be caught if "isStrict" is set to false.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.SerializationHelper.IsSerializable(System.Reflection.MemberInfo)">
+            <summary>
+            Return whether the member should be serialized.  It should be
+            public, not marked with NonSerializableAttribute, gettable, and
+            settable.
+            </summary>
+        </member>
+        <member name="T:Dpu.Utility.SimpleDistance">
+            <summary>
+            Summary description for SimpleDistance.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.SimpleDistance.GetSpacialRelationFlags(System.Drawing.Rectangle,System.Drawing.Rectangle)">
+            <summary>
+            Gets a value containing bit flags that indicate the position of rect2 in relation to rect1.
+            Four bits are used :
+            position    meaning
+            --------    -----------------------
+              0         rect2 is right of rect1
+              1         rect2 is left of rect1
+              2         rect2 is above rect1
+              3         rect2 is below rect1
+            
+            Using these flags, one of nine values will be selected:
+            00 00 = the rectangles overlap
+            00 01 = rect2 is to the right of rect1 and the two overlap vertically
+            00 10 = rect2 is to the left of rect1 and the two overlap vertically.
+            01 00 = rect2 is above rect1 and the two overlap horizontally.
+            01 01 = rect2 is above and to the right of rect1
+            01 10 = rect2 is above and to the left of rect1
+            10 00 = rect2 is below rect1 and the two overlap horizontally
+            10 01 = rect2 is below and to the right of rect1
+            10 10 = rect2 is below and to the left of rect1
+            </summary>
+            <returns>A value indicating the relative position of the second rectangle in relation to the first.</returns>
+        </member>
+        <member name="T:Dpu.Utility.TextProgressBar">
+            <summary>
+            An object for showing progress using text only.  
+            This object partially emulates the System.Windows.Forms.ProgressBar class but only
+            allows for an increasing value as we cannot
+            </summary>
+        </member>
+        <member name="T:Dpu.Utility.UnionFind">
+            <summary>
+            Implement the union-find algorithm
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.UnionFind.#ctor(System.Int32)">
+            <summary>
+            Perform UF on id's 0 => N-1.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.UnionFind.Pack">
+            <summary>
+            Collapse all the parent chains to a direct pointer.
+            MMS: I don't think this is really necessary
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.UnionFind.Equivalents">
+            <summary>
+            Return set of equivalence classes
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.UnionFind.Find(System.Int32)">
+            <summary>
+            Find of the union-find algorithm
+            See Introduction to Algorithms by Cormen, Leiserson and Rivest (pp 448)
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.UnionFind.Union(System.Int32,System.Int32)">
+            <summary>
+            Union of the union-find algorithm
+            See Introduction to Algorithms by Cormen, Leiserson and Rivest (pp 448)
+            </summary>
+        </member>
+        <member name="F:Dpu.Utility.EpsilonTest.Epsilon">
+            <summary>
+            Epsilon to compare double value.
+            </summary>
+        </member>
+        <member name="T:Dpu.Utility.SharedIdGenerator">
+            <summary>
+            Generate unique id's
+            </summary>
+        </member>
+        <member name="T:Dpu.Utility.ExecTimer">
+            <summary>
+            Useful for timing functions on the order of seconds or minutes.
+            </summary>
+        </member>
+        <member name="T:Dpu.Utility.SharedRandom">
+            <summary>
+            Used to minimize the number of random number generators needed in code.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.SharedRandom.NextNormal">
+            <summary>
+            Normal with mean 0 and stdev 1.0 (see Numerical Recipes)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Dpu.Utility.CheapHash">
+            <summary>
+            Computes a cheap hash key for a sequence of integers.  
+            Based on the random number generator by Knuth.
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.CheapHash.Add(System.Int32)">
+            <summary>
+            Add another element to the key
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.CheapHash.Add(System.Double)">
+            <summary>
+            Add another element to the key
+            </summary>
+        </member>
+        <member name="P:Dpu.Utility.CheapHash.Key">
+            <summary>
+             Cast to an int in a reasonable way.
+            </summary>
+        </member>
+        <member name="T:Dpu.Utility.DistributionEstimate">
+            <summary>
+            Estimate properties of a distribution
+            </summary>
+        </member>
+        <member name="M:Dpu.Utility.DistributionEstimate.Add(System.Double)">
+            <summary>
+            Add another sample to the distribution
+            </summary>
+            <param name="newValue"></param>
+        </member>
+        <member name="T:Dpu.Utility.XmlUtil">
+            <summary>
+            Utilities for XML
+            </summary>
+        </member>
+    </members>
+</doc>

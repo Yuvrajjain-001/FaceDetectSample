@@ -1,14 +1,13 @@
+using LibFaceData;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using FaceSortUI;
 using DetectionManagedLib;
 using System.Windows;
 using System.IO;
-using FaceDisp;
 using Dpu.ImageProcessing;
 using ShoNS.Array;
-using Microsoft.LiveLabs;
+using NNTrainer;
 
 namespace GenPositionData
 {
@@ -51,7 +50,7 @@ namespace GenPositionData
         public FaceRecoGen(string[] args, int iArg)
         {
             float detectionThresh = 0.0F;
-            string classifierPath = @"D:\ll\private\research\private\CollaborativeLibs_01\LibFaceDetect\FaceDetect\Classifier\classifier.txt";
+            string classifierPath = @"G:\src\Face\FaceDetect\Classifier\classifier.txt";
             string outFile = "out.txt";
             _faceDetectPixCount = (int)(_eyeDetectFaceRect.Width * _eyeDetectFaceRect.Height);
 
@@ -128,8 +127,12 @@ namespace GenPositionData
                 }
 
             }
+            string filename = @"G:\src\BingApi\images\tmp.txt";
 
-            string filename = args[iArg];
+            if (iArg < args.Length)
+            {
+                filename = args[iArg];
+            }
             _detector = new FaceDetector(classifierPath, true, detectionThresh);
             _outStream = new StreamWriter(outFile);
 
@@ -260,7 +263,7 @@ namespace GenPositionData
 
             try
             {
-                suiteReader = new FaceDataFile(suiteFile, FaceDisp.FaceData.FaceDataTypeEnum.EyeDetect);
+                suiteReader = new FaceDataFile(suiteFile, LibFaceData.FaceData.FaceDataTypeEnum.EyeDetect);
             }
             catch (Exception e)
             {
@@ -719,7 +722,7 @@ namespace GenPositionData
                     faceFile = "_face";
                 }
 
-                SaveAsJpeg(_normFacePixs, targetRect, _dumpJpgCount.ToString() + faceFile + ".jpg", "keyword");
+                SaveAsJpeg(_normFacePixs, targetRect, _dumpJpgCount.ToString() + faceFile + ".jpg", "keyword", System.Windows.Media.PixelFormats.Rgb24);
                 ++_dumpJpgCount;
             }
             //_normFacePixs = ConvertToGreyScale(_normFacePixs, _normFacePixs.Length / targetRectLen);
@@ -826,11 +829,11 @@ namespace GenPositionData
             // fake point located at right angles to the vector joing the two eyes
             //INumArray<float> origMat = ArrFactory.FloatArray(3, 2);
             //INumArray<float> targetMat = ArrFactory.FloatArray(3, 3);
-            INumArray<float> targetMat = ArrFactory.FloatArray(3, 2);
-            INumArray<float> origMat = ArrFactory.FloatArray(3, 3);
+            FloatArray targetMat = new FloatArray(3, 2);
+            FloatArray origMat = new FloatArray(3, 3);
 
-            FaceSortUI.ImageUtils.EyePosAsMatrix(origRect, origLeftEye, origRightEye, ref origMat);
-            FaceSortUI.ImageUtils.EyePosAsMatrix(targetRect, targetLeftEye, targetRightEye, ref targetMat);
+            LibFaceData.ImageUtils.EyePosAsMatrix(origRect, origLeftEye, origRightEye, ref origMat);
+            LibFaceData.ImageUtils.EyePosAsMatrix(targetRect, targetLeftEye, targetRightEye, ref targetMat);
             //targetMat[0, 2] = 1.0F;
             //targetMat[1, 2] = 1.0F;
             //targetMat[2, 2] = 1.0F;
@@ -842,7 +845,10 @@ namespace GenPositionData
             SVDFloat svd = new SVDFloat(origMat);
             INumArray<float> sss = svd.Solve(targetMat);
             INumArray<float> mmm = (INumArray<float>)sss.Transpose();
-            double[,] affineMat = ArrFactory.DoubleArray(mmm).ToArray();
+            DoubleArray da = DoubleArray.From(mmm);
+            double[,] affineMat = LibFaceData.ImageUtils.ConvertToDoubleArray(da);
+
+            //double[,] affineMat = ArrFactory.DoubleArray(mmm).ToArray();
 
             return affineMat;
 

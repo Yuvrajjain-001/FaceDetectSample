@@ -4,7 +4,7 @@ using System.Text;
 using System.Windows;
 using System.IO;
 using System.Windows.Media.Imaging;
-using Microsoft.LiveLabs;
+using NNTrainer;
 
 using SIFT_M;
 
@@ -13,30 +13,29 @@ namespace GenPositionData
     /// <summary>
     /// Provides base services for face Reco and eyeReco classes
     /// </summary>
-    class BaseReco
+    public class BaseReco
     {
         public enum NormalizeActionsEnum { None, ConstantSum, BlurSubtract, BlurSubtract3, SIFT };
-        static protected double _faceDisplayWidth = 41;
-        static protected double _faceDisplayHeight = 41;
-        static protected int _normalizeSum;
-        static protected int _defaultNormalizedLen;
-        static protected int _dataBytePerPixel;
-        static protected int _blurKernelSize = 9;
-        static protected float _blurVar = 5.0F;
+        protected double _faceDisplayWidth = 41;
+        protected double _faceDisplayHeight = 41;
+        protected int _normalizeSum;
+        protected int _defaultNormalizedLen;
+        protected int _dataBytePerPixel;
+        protected int _blurKernelSize = 9;
+        protected float _blurVar = 5.0F;
 
-        static protected BitmapSource _bitmap;
-        static protected double _defaultDPI = 96;
-        static protected TrainDataFileWriter.ModeEnum _dataFileMode = TrainDataFileWriter.ModeEnum.Text;
-        static protected NormalizeActionsEnum _normalizeAction = NormalizeActionsEnum.ConstantSum;
+        protected BitmapSource _bitmap;
+        protected double _defaultDPI = 96;
+        protected TrainDataFileWriter.ModeEnum _dataFileMode = TrainDataFileWriter.ModeEnum.Text;
+        protected NormalizeActionsEnum _normalizeAction = NormalizeActionsEnum.ConstantSum;
 
         #region SIFT Parameters
-        static protected int _partitionNumber = 4;//better set it to be the square of an integer
+        protected int _partitionNumber = 4;//better set it to be the square of an integer
                
-        static private CSIFTInterestPointDescriptorM _siftDesc = null;
+        protected CSIFTInterestPointDescriptorM _siftDesc = null;
         #endregion SIFT Parameters
 
-
-        static protected byte [] Normalize(byte [] data, Rect rect, int bytePerPixel)
+        public byte [] Normalize(byte [] data, Rect rect, int bytePerPixel)
         {
             byte [] ret;
             switch (_normalizeAction)
@@ -46,11 +45,11 @@ namespace GenPositionData
                     break;
 
                 case NormalizeActionsEnum.BlurSubtract:
-                    ret = NormalizeByBlur(data, rect, bytePerPixel, _blurKernelSize, _blurVar);
+                    ret = NormalizeByBlur(data, rect, bytePerPixel, this._blurKernelSize, this._blurVar);
                     break;
 
                 case NormalizeActionsEnum.BlurSubtract3:
-                    ret = NormalizeByBlur3(data, rect, bytePerPixel, _blurKernelSize, _blurVar);
+                    ret = NormalizeByBlur3(data, rect, bytePerPixel, this._blurKernelSize, this._blurVar);
                     break;
 
                 case NormalizeActionsEnum.None:
@@ -68,14 +67,14 @@ namespace GenPositionData
             return ret;
         }
 
-        static protected byte[] NormalizeBySIFT(byte[] data, Rect rect, int bytePerPix)
+        public byte[] NormalizeBySIFT(byte[] data, Rect rect, int bytePerPix)
         {
-            if (_siftDesc == null)
+            if (this._siftDesc == null)
             {
                 SIFTParametersM param = new SIFTParametersM();
-                _siftDesc = new CSIFTInterestPointDescriptorM();
-                _siftDesc.GetDefaultParameters(param);
-                _siftDesc.Create(param);
+                this._siftDesc = new CSIFTInterestPointDescriptorM();
+                this._siftDesc.GetDefaultParameters(param);
+                this._siftDesc.Create(param);
             }
 
             //Convert the byte array into images
@@ -103,7 +102,7 @@ namespace GenPositionData
             interestPt.fStrength = 100;
             interestPt.SetScale((float)partWidth/16.0f);
 
-            _siftDesc.Update(Img);
+            this._siftDesc.Update(Img);
 
             index = 0;
             List<byte> siftDescriptor=new List<byte>();
@@ -115,7 +114,7 @@ namespace GenPositionData
                 {
                     interestPt.SetPosition((j + 0.5f) * partWidth, (i + 0.5f) * partHeight);
                     siftDescriptor.Clear();
-                    _siftDesc.GetDescriptorUChar(interestPt, siftDescriptor, ref descriptor);
+                    this._siftDesc.GetDescriptorUChar(interestPt, siftDescriptor, ref descriptor);
                     foreach (byte val in siftDescriptor)
                     {
                         ret[index++] = val;
@@ -125,12 +124,12 @@ namespace GenPositionData
             return ret;
         }
 
-        static protected byte[] NormalizeByBlur(byte[] dataPixs, Rect rect, int bytePerPix, int kernelSize, float blurVar)
+        public byte[] NormalizeByBlur(byte[] dataPixs, Rect rect, int bytePerPix, int kernelSize, float blurVar)
         {
             Dpu.ImageProcessing.Image blur = new Dpu.ImageProcessing.Image(kernelSize, kernelSize);
             Dpu.ImageProcessing.Image.Blur_Kernel(blur, 1.0F, blurVar, blurVar, true);
 
-            Dpu.ImageProcessing.Image[] src = FaceSortUI.ImageUtils.ConvertByteArrayToImageArray(dataPixs, rect, bytePerPix);
+            Dpu.ImageProcessing.Image[] src = LibFaceData.ImageUtils.ConvertByteArrayToImageArray(dataPixs, rect, bytePerPix);
             Dpu.ImageProcessing.Image dest = new Dpu.ImageProcessing.Image((int)rect.Width, (int)rect.Height);
             Dpu.ImageProcessing.Image.ConvolutionReflecting(src[0], 1, 1, blur, dest);
             Dpu.ImageProcessing.Image.Subtract(src[0], dest, dest);
@@ -138,17 +137,17 @@ namespace GenPositionData
             Dpu.ImageProcessing.Image[] destArray = new Dpu.ImageProcessing.Image[1];
 
             destArray[0] = dest;
-            byte[] ret = FaceSortUI.ImageUtils.ConvertImageArrayToByteArray(destArray);
+            byte[] ret = LibFaceData.ImageUtils.ConvertImageArrayToByteArray(destArray);
 
             return ret;
         }
 
-        static protected byte[] NormalizeByBlur3(byte[] dataPixs, Rect rect, int bytePerPix, int kernelSize, float blurVar)
+        public byte[] NormalizeByBlur3(byte[] dataPixs, Rect rect, int bytePerPix, int kernelSize, float blurVar)
         {
             Dpu.ImageProcessing.Image blur = new Dpu.ImageProcessing.Image(kernelSize, kernelSize);
             Dpu.ImageProcessing.Image.Blur_Kernel(blur, 1.0F, blurVar, blurVar, true);
 
-            Dpu.ImageProcessing.Image[] src = FaceSortUI.ImageUtils.ConvertByteArrayToImageArray(dataPixs, rect, bytePerPix);
+            Dpu.ImageProcessing.Image[] src = LibFaceData.ImageUtils.ConvertByteArrayToImageArray(dataPixs, rect, bytePerPix);
 
             byte[] ret = new byte[(int)rect.Width * (int)rect.Height * (bytePerPix-1)];
             for (int ib = 1; ib < bytePerPix; ++ib)
@@ -167,7 +166,7 @@ namespace GenPositionData
                 Dpu.ImageProcessing.Image.NormalizeMeanStdev(dest, 128, 32, dest);
                 destArray[0] = dest;
                 //destArray[0] = src[ib];
-                byte[] tmp = FaceSortUI.ImageUtils.ConvertImageArrayToByteArray(destArray);
+                byte[] tmp = LibFaceData.ImageUtils.ConvertImageArrayToByteArray(destArray);
                 Array.Copy(tmp, 0, ret, destOff, tmp.Length);
                 destOff += tmp.Length;
             }
@@ -175,7 +174,7 @@ namespace GenPositionData
             return ret;
         }
 
-        static protected byte[] NormalizeBySum(byte[] facePix)
+        public byte[] NormalizeBySum(byte[] facePix)
         {
             int sum = 0;
 
@@ -184,7 +183,7 @@ namespace GenPositionData
                 sum += facePix[iPix];
             }
 
-            int normalizeSum = _normalizeSum * facePix.Length / _defaultNormalizedLen;
+            int normalizeSum = this._normalizeSum * facePix.Length / this._defaultNormalizedLen;
 
             for (int iPix = 0; iPix < facePix.Length; ++iPix)
             {
@@ -195,14 +194,14 @@ namespace GenPositionData
             return facePix;
         }
 
-        static protected byte[] ConvertToGreyScale(byte[] facePix)
+        public byte[] ConvertToGreyScale(byte[] facePix)
         {
-            int cColorPlane = (int)(facePix.Length / _faceDisplayWidth / _faceDisplayHeight);
+            int cColorPlane = (int)(facePix.Length / this._faceDisplayWidth / this._faceDisplayHeight);
 
             return ConvertToGreyScale(facePix, cColorPlane);
         }
 
-        static protected byte[] ConvertToGreyScale(byte[] facePix, int cColorPlane)
+        public byte[] ConvertToGreyScale(byte[] facePix, int cColorPlane)
         {
             byte[] grey = new byte[facePix.Length / cColorPlane];
 
@@ -222,34 +221,34 @@ namespace GenPositionData
             return grey;
         }
 
-        static protected byte[] SelectAndNormalizePatch(byte[] dataPixs, Point sourceLeft, Point sourceRight, Point targetLeft, Point targetRight, Rect targetRect)
+        public byte[] SelectAndNormalizePatch(byte[] dataPixs, Point sourceLeft, Point sourceRight, Point targetLeft, Point targetRight, Rect targetRect)
         {
 
-            int stride = _bitmap.PixelWidth * _dataBytePerPixel;
-            Rect sourceRect = new Rect(0, 0, _bitmap.PixelWidth, _bitmap.PixelHeight);
+            int stride = this._bitmap.PixelWidth * this._dataBytePerPixel;
+            Rect sourceRect = new Rect(0, 0, this._bitmap.PixelWidth, this._bitmap.PixelHeight);
 
             byte[] facePixs = null;
 
-            Dpu.ImageProcessing.Image[] images = FaceSortUI.ImageUtils.ConvertByteArrayToImageArray(dataPixs, sourceRect, _dataBytePerPixel);
+            Dpu.ImageProcessing.Image[] images = LibFaceData.ImageUtils.ConvertByteArrayToImageArray(dataPixs, sourceRect, this._dataBytePerPixel);
 
-            images = FaceSortUI.ImageUtils.ExtractNormalizeFace(images, sourceRect,
+            images = LibFaceData.ImageUtils.ExtractNormalizeFace(images, sourceRect,
                                             sourceLeft, sourceRight,
-                                            _dataBytePerPixel, targetRect,
+                                            this._dataBytePerPixel, targetRect,
                                             targetLeft, targetRight);
 
-            facePixs = FaceSortUI.ImageUtils.ConvertImageArrayToByteArray(images);
+            facePixs = LibFaceData.ImageUtils.ConvertImageArrayToByteArray(images);
             //stride = (int)(faceRect.Width * _dataBytePerPixel);
             //BitmapSource ret = (BitmapSource)BitmapImage.Create((int)faceRect.Width, (int)faceRect.Height,
-            //    _defaultDPI,
-            //    _defaultDPI,
-            //    _bitmap.Format, null, facePixs, stride);
+            //    this._defaultDPI,
+            //    this._defaultDPI,
+            //    this._bitmap.Format, null, facePixs, stride);
 
 
             return facePixs;
 
         }
 
-        static protected byte[] CreateMainBitMap(string filename)
+        public byte[] CreateMainBitMap(string filename)
         {
             Uri uri = new Uri("file:" + filename);
             if (false == System.IO.File.Exists(uri.LocalPath))
@@ -264,29 +263,30 @@ namespace GenPositionData
 
             if (System.Windows.Media.PixelFormats.Rgb24 != bitmapImage.Format)
             {
-                _bitmap = new FormatConvertedBitmap(bitmapImage, System.Windows.Media.PixelFormats.Rgb24, null, 0.0) as BitmapSource;
+                this._bitmap = new FormatConvertedBitmap(bitmapImage, System.Windows.Media.PixelFormats.Rgb24, null, 0.0) as BitmapSource;
             }
             else
             {
-                _bitmap = bitmapImage as BitmapSource;
+                this._bitmap = bitmapImage as BitmapSource;
             }
 
-            if (null == _bitmap)
+            if (null == this._bitmap)
             {
                 throw new Exception("Bitmap is null");
             }
 
-            _dataBytePerPixel = _bitmap.Format.BitsPerPixel / 8;
-            int stride = _bitmap.PixelWidth * _dataBytePerPixel;
-            byte[] dataPixs = new byte[stride * _bitmap.PixelHeight];
-            _bitmap.CopyPixels(dataPixs, stride, 0);
+            this._dataBytePerPixel = this._bitmap.Format.BitsPerPixel / 8;
+            int stride = this._bitmap.PixelWidth * this._dataBytePerPixel;
+            byte[] dataPixs = new byte[stride * this._bitmap.PixelHeight];
+            this._bitmap.CopyPixels(dataPixs, stride, 0);
 
-            if (_bitmap.DpiX != _defaultDPI ||
-                _bitmap.DpiY != _defaultDPI)
+            if (this._bitmap.DpiX != this._defaultDPI ||
+                this._bitmap.DpiY != this._defaultDPI)
             {
-                _bitmap = BitmapImage.Create(_bitmap.PixelWidth, _bitmap.PixelHeight,
-                    _defaultDPI, _defaultDPI,
-                    _bitmap.Format, null,
+                this._bitmap = BitmapImage.Create(this._bitmap.PixelWidth, this._bitmap.PixelHeight,
+                    this._defaultDPI, this._defaultDPI,
+                    this._bitmap.Format,
+                    null,
                     dataPixs, stride);
             }
 
@@ -301,7 +301,7 @@ namespace GenPositionData
         /// <param name="point">Normalized point</param>
         /// <param name="rect">ARectangle</param>
         /// <returns>Absolute point location</returns>
-        static protected Point NormalizePosToAbs(Point point, Rect rect)
+        public Point NormalizePosToAbs(Point point, Rect rect)
         {
             Point absPoint = new Point();
 
@@ -310,7 +310,7 @@ namespace GenPositionData
 
             return absPoint;
         }
-        static protected void SaveAsJpeg(byte[] pixs, Rect rect, string file, string keyword)
+        public void SaveAsJpeg(byte[] pixs, Rect rect, string file, string keyword, System.Windows.Media.PixelFormat fmt, int bytePerPixel = -1)
         {
             int pixCount = (int)(rect.Width * rect.Height);
             if (pixCount <= 0)
@@ -319,11 +319,17 @@ namespace GenPositionData
             }
 
             int dataPerPix = pixs.Length / pixCount;
-            int stride = (int)rect.Width * _dataBytePerPixel;
+            if (bytePerPixel  < 0)
+            {
+                bytePerPixel = this._dataBytePerPixel;
+            }
+            int stride = (int)rect.Width * bytePerPixel;
 
             BitmapSource image = BitmapSource.Create((int)rect.Width, (int)rect.Height,
-                    _defaultDPI, _defaultDPI,
-                    _bitmap.Format, null,
+                    this._defaultDPI, this._defaultDPI,
+                    //this._bitmap.Format,
+                    fmt,
+                    null,
                     pixs, stride);
 
             JpegBitmapEncoder encoder = new JpegBitmapEncoder();
@@ -345,11 +351,11 @@ namespace GenPositionData
             }
 
         }
-        static protected byte[] MakeFaceData(byte[] facePix)
+        public byte[] MakeFaceData(byte[] facePix)
         {
             byte[] data;
 
-            int cColorPlane = (int)(facePix.Length / _faceDisplayWidth / _faceDisplayHeight);
+            int cColorPlane = (int)(facePix.Length / this._faceDisplayWidth / this._faceDisplayHeight);
 
             if (cColorPlane > 1)
             {
@@ -372,8 +378,5 @@ namespace GenPositionData
 
             return data;
         }
-
-
-
     }
 }

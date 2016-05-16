@@ -1,0 +1,2 @@
+-maxTransformCount 10 -generateEyeFace -normSum -detectPath ..\..\bin\classifier.txt -detect -out junk.dat  \\dpufsrv\Data\Images\faceDetect\060626\label.txt
+Q:\mrevow\eyedet\trainDataFeatures\transform
