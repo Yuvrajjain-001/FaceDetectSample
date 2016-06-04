@@ -1,3 +1,4 @@
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Drawing2D;
@@ -36,7 +37,9 @@ namespace Microsoft.LiveLabs
         private Pen eyePen = new Pen(Color.Red, 2);
 
         private string faceDetectorData = "classifier.txt";
-
+        private string sentimentNetRegKey = @"Software\SentimentDemo";
+        private string sentimentNetRegVal = "SentimentNet";
+        private string sentimentNet = @"g:\projects\Photos\sentiment\1\net_30.bin";
         private string basePath = "";
 
         public FaceDetectSample()
@@ -44,6 +47,12 @@ namespace Microsoft.LiveLabs
             InitializeComponent();
             pictureBoxGraphics = pictureBox1.CreateGraphics();
             eyeMark = 0.06F;
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(this.sentimentNetRegKey);
+            if (null != key)
+            {
+                this.sentimentNet = (string)key.GetValue(this.sentimentNetRegVal, this.sentimentNet);
+            }
+
             try
             {
                 faceDetector = new FaceDetector(faceDetectorData, true, 0.0F);
@@ -145,10 +154,7 @@ namespace Microsoft.LiveLabs
             leftMouthRects.Clear();
             rightMouthRects.Clear();
 
-            if (true == checkBoxEyeDetect.Checked)
-            {
-                RunEyeDetection();
-            }
+            RunEyeDetection();
         }
 
         /// <summary>
@@ -172,6 +178,8 @@ namespace Microsoft.LiveLabs
             System.Runtime.InteropServices.Marshal.Copy(data.Scan0, rgbValues, 0, bytes);
 
             DateTime start = DateTime.Now;
+            float[] avgScore = new float[2];
+            float sentimentCount = 0;
             foreach (ScoredRect r in faceDetectRects)
             {
                 Rectangle faceRect = new Rectangle(r.X, r.Y, r.Width, r.Height);
@@ -202,15 +210,64 @@ namespace Microsoft.LiveLabs
                     rightMouthRects.Add(new RectangleF((float)faceResult.RightMouth.X - eyeRectLen2,
                                                         (float)faceResult.RightMouth.Y - eyeRectLen2,
                                                         eyeRectLen, eyeRectLen));
+
+                    List<float> res = RunSentimentAnalysis(r, faceResult, rgbValues, photoBitMap, data);
+                    if (res != null)
+                    {
+                        avgScore[0] += res[0];
+                        avgScore[1] += res[1];
+                        ++sentimentCount;
+                    }
                 }
 
             }
             TimeSpan detectTime = new TimeSpan(DateTime.Now.Ticks - start.Ticks);
             textBoxEyeDetect.Text = detectTime.Milliseconds.ToString();
 
+            if (sentimentCount > 0)
+            {
+                avgScore[0] /= sentimentCount;
+                avgScore[1] /= sentimentCount;
+                this.happyScore.Text = string.Format("{0:F3}", avgScore[0]);
+                this.unhappyScore.Text = string.Format("{0:F3}", avgScore[1]);
+            }
+
             photoBitMap.UnlockBits(data);
         }
 
+        private List<float> RunSentimentAnalysis(ScoredRect r, FaceFeatureResult faceResult, byte[] rgbValues, Bitmap bitmap, BitmapData bitmapdata)
+        {
+            double eyeFrac = 0.6;       // Width between eyes as frac of extraction
+            double eyeToMouthFrac = 0.6; // Eye to mouth fraction of extracted height
+            System.Drawing.Rectangle faceRect = new System.Drawing.Rectangle(r.X, r.Y, r.Width, r.Height);
+
+
+            int width = Convert.ToInt32((faceResult.RightEye.X - faceResult.LeftEye.X) / eyeFrac);
+            int height = Convert.ToInt32(((faceResult.LeftMouth.Y + faceResult.RightMouth.Y) - (faceResult.RightEye.Y + faceResult.LeftEye.Y)) / eyeToMouthFrac / 2);
+            int leftX = Convert.ToInt32(faceResult.LeftEye.X - ((1.0 - eyeFrac) / 2.0 * width));
+            int leftY = Convert.ToInt32((faceResult.LeftEye.Y + faceResult.RightEye.Y) / 2.0 -
+                                        ((1 - eyeToMouthFrac) / 2.0 * height));
+            if (leftX < 0 || leftY < 0)
+            {
+                MessageBox.Show("Eye Detection outside face Rect", "Error");
+                return null;
+            }
+
+            System.Drawing.Rectangle scaleRect = new System.Drawing.Rectangle(leftX, leftY, width, height);
+            int bytePerPixel = rgbValues.Length / (bitmap.Width * bitmap.Height);
+            byte[] scaledData = eyeDetect.ScaleImage(rgbValues, bitmap.Width, bitmap.Height, bitmapdata.Stride, scaleRect, bytePerPixel);
+            //this.SaveSentimentResult(scaledData, targets, line, i);
+            Microsoft.Search.nnRunTimeManaged nn = new Search.nnRunTimeManaged(this.sentimentNet);
+
+            int[] intScaled = new int[scaledData.Length];
+            for (int i = 0; i < scaledData.Length; ++i)
+            {
+                intScaled[i] = Convert.ToInt32(scaledData[i]);
+            }
+
+            List<float> result = nn.Classify<int>(intScaled);
+            return result;
+        }
 
         private void PopulateListBox(string suiteFile)
         {
@@ -273,34 +330,38 @@ namespace Microsoft.LiveLabs
 
         private void DrawResults(Graphics gfx)
         {
-            foreach (ScoredRect r in faceDetectRects)
+            if (true == this.checkBoxEyeDetect.Checked)
             {
-                gfx.DrawRectangle(facePen, r.X * imageScale, r.Y * imageScale, r.Width * imageScale, r.Height * imageScale);
-            }
-            foreach (RectangleF r in leftEyeRects)
-            {
-                RectangleF re = new RectangleF(r.X * imageScale, r.Y * imageScale, r.Width * imageScale, r.Height * imageScale);
-                gfx.DrawEllipse(eyePen, re);
-            }
-            foreach (RectangleF r in rightEyeRects)
-            {
-                RectangleF re = new RectangleF(r.X * imageScale, r.Y * imageScale, r.Width * imageScale, r.Height * imageScale);
-                gfx.DrawEllipse(eyePen, re);
-            }
-            foreach (RectangleF r in noseRects)
-            {
-                RectangleF re = new RectangleF(r.X * imageScale, r.Y * imageScale, r.Width * imageScale, r.Height * imageScale);
-                gfx.DrawEllipse(eyePen, re);
-            }
-            foreach (RectangleF r in leftMouthRects)
-            {
-                RectangleF re = new RectangleF(r.X * imageScale, r.Y * imageScale, r.Width * imageScale, r.Height * imageScale);
-                gfx.DrawEllipse(eyePen, re);
-            }
-            foreach (RectangleF r in rightMouthRects)
-            {
-                RectangleF re = new RectangleF(r.X * imageScale, r.Y * imageScale, r.Width * imageScale, r.Height * imageScale);
-                gfx.DrawEllipse(eyePen, re);
+
+                foreach (ScoredRect r in faceDetectRects)
+                {
+                    gfx.DrawRectangle(facePen, r.X * imageScale, r.Y * imageScale, r.Width * imageScale, r.Height * imageScale);
+                }
+                foreach (RectangleF r in leftEyeRects)
+                {
+                    RectangleF re = new RectangleF(r.X * imageScale, r.Y * imageScale, r.Width * imageScale, r.Height * imageScale);
+                    gfx.DrawEllipse(eyePen, re);
+                }
+                foreach (RectangleF r in rightEyeRects)
+                {
+                    RectangleF re = new RectangleF(r.X * imageScale, r.Y * imageScale, r.Width * imageScale, r.Height * imageScale);
+                    gfx.DrawEllipse(eyePen, re);
+                }
+                foreach (RectangleF r in noseRects)
+                {
+                    RectangleF re = new RectangleF(r.X * imageScale, r.Y * imageScale, r.Width * imageScale, r.Height * imageScale);
+                    gfx.DrawEllipse(eyePen, re);
+                }
+                foreach (RectangleF r in leftMouthRects)
+                {
+                    RectangleF re = new RectangleF(r.X * imageScale, r.Y * imageScale, r.Width * imageScale, r.Height * imageScale);
+                    gfx.DrawEllipse(eyePen, re);
+                }
+                foreach (RectangleF r in rightMouthRects)
+                {
+                    RectangleF re = new RectangleF(r.X * imageScale, r.Y * imageScale, r.Width * imageScale, r.Height * imageScale);
+                    gfx.DrawEllipse(eyePen, re);
+                }
             }
         }
 
@@ -334,12 +395,39 @@ namespace Microsoft.LiveLabs
             {
                 if (false == eyeDetect.SetAlgorithm(EyeDetect.AlgorithmEnum.NN, dialog.FileName))
                 {
-                    MessageBox.Show("Could not load detectoir file " + Path.GetFileName(dialog.FileName));
+                    MessageBox.Show("Could not load detector file " + Path.GetFileName(dialog.FileName));
                 }
             }
         }
 
+        private void SentimentNet_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
 
+            dialog.Filter = "bin files (*.bin)|*.bin|All files (*.*)|*.*";
+            if (DialogResult.OK == dialog.ShowDialog())
+            {
+                this.sentimentNet = dialog.FileName;
+                using (RegistryKey key = Registry.CurrentUser.CreateSubKey(
+                                @"Software\SentimentDemo",
+                                RegistryKeyPermissionCheck.ReadWriteSubTree))
+                {
+                    key.SetValue("SentimentNet", dialog.FileName);
+                }
+            }
+        }
 
+        private void OpenJpg_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+
+            dialog.Filter = "jpg files (*.jpg)|*.jpg|All files (*.*)|*.*";
+            if (DialogResult.OK == dialog.ShowDialog())
+            {
+                DetectFile(dialog.FileName);
+                pictureBox1.Invalidate();
+            }
+
+        }
     }
 }

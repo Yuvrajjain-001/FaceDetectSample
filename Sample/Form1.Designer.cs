@@ -33,6 +33,8 @@ namespace Microsoft.LiveLabs
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.detectorFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.checkBoxEyeDetect = new System.Windows.Forms.CheckBox();
             this.numericUpDownFaceDetectThreshold = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,7 +43,11 @@ namespace Microsoft.LiveLabs
             this.textBoxEyeDetect = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SaveAllButton = new System.Windows.Forms.Button();
-            this.detectorFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.happyScore = new System.Windows.Forms.Label();
+            this.unhappyScore = new System.Windows.Forms.Label();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFaceDetectThreshold)).BeginInit();
@@ -80,7 +86,9 @@ namespace Microsoft.LiveLabs
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
-            this.detectorFileToolStripMenuItem});
+            this.toolStripMenuItem2,
+            this.detectorFileToolStripMenuItem,
+            this.toolStripMenuItem1});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -88,14 +96,28 @@ namespace Microsoft.LiveLabs
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Text = "OpenSuite";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // detectorFileToolStripMenuItem
+            // 
+            this.detectorFileToolStripMenuItem.Name = "detectorFileToolStripMenuItem";
+            this.detectorFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.detectorFileToolStripMenuItem.Text = "DetectorFile";
+            this.detectorFileToolStripMenuItem.Click += new System.EventHandler(this.detectorFileToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Text = "SentimentNet";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.SentimentNet_Click);
             // 
             // checkBoxEyeDetect
             // 
             this.checkBoxEyeDetect.AutoSize = true;
-            this.checkBoxEyeDetect.Location = new System.Drawing.Point(220, 27);
+            this.checkBoxEyeDetect.Location = new System.Drawing.Point(180, 27);
             this.checkBoxEyeDetect.Name = "checkBoxEyeDetect";
             this.checkBoxEyeDetect.Size = new System.Drawing.Size(79, 17);
             this.checkBoxEyeDetect.TabIndex = 5;
@@ -111,7 +133,7 @@ namespace Microsoft.LiveLabs
             0,
             0,
             65536});
-            this.numericUpDownFaceDetectThreshold.Location = new System.Drawing.Point(306, 27);
+            this.numericUpDownFaceDetectThreshold.Location = new System.Drawing.Point(274, 27);
             this.numericUpDownFaceDetectThreshold.Maximum = new decimal(new int[] {
             10,
             0,
@@ -124,7 +146,7 @@ namespace Microsoft.LiveLabs
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(363, 27);
+            this.label1.Location = new System.Drawing.Point(331, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 13);
             this.label1.TabIndex = 7;
@@ -132,7 +154,7 @@ namespace Microsoft.LiveLabs
             // 
             // textBoxFaceDetectTime
             // 
-            this.textBoxFaceDetectTime.Location = new System.Drawing.Point(486, 24);
+            this.textBoxFaceDetectTime.Location = new System.Drawing.Point(596, 24);
             this.textBoxFaceDetectTime.Name = "textBoxFaceDetectTime";
             this.textBoxFaceDetectTime.ReadOnly = true;
             this.textBoxFaceDetectTime.Size = new System.Drawing.Size(47, 20);
@@ -141,15 +163,15 @@ namespace Microsoft.LiveLabs
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(539, 27);
+            this.label2.Location = new System.Drawing.Point(649, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 13);
+            this.label2.Size = new System.Drawing.Size(96, 13);
             this.label2.TabIndex = 9;
-            this.label2.Text = "mSec  -Face Detect Time";
+            this.label2.Text = "Face Detect mSec";
             // 
             // textBoxEyeDetect
             // 
-            this.textBoxEyeDetect.Location = new System.Drawing.Point(700, 24);
+            this.textBoxEyeDetect.Location = new System.Drawing.Point(760, 24);
             this.textBoxEyeDetect.Name = "textBoxEyeDetect";
             this.textBoxEyeDetect.ReadOnly = true;
             this.textBoxEyeDetect.Size = new System.Drawing.Size(45, 20);
@@ -158,11 +180,11 @@ namespace Microsoft.LiveLabs
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(752, 24);
+            this.label3.Location = new System.Drawing.Point(802, 28);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(116, 13);
+            this.label3.Size = new System.Drawing.Size(93, 13);
             this.label3.TabIndex = 11;
-            this.label3.Text = "mSec Eye Detect Time";
+            this.label3.Text = " Eye Detect mSec";
             // 
             // SaveAllButton
             // 
@@ -174,18 +196,56 @@ namespace Microsoft.LiveLabs
             this.SaveAllButton.UseVisualStyleBackColor = true;
             this.SaveAllButton.Click += new System.EventHandler(this.SaveAllButton_Click);
             // 
-            // detectorFileToolStripMenuItem
+            // label4
             // 
-            this.detectorFileToolStripMenuItem.Name = "detectorFileToolStripMenuItem";
-            this.detectorFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.detectorFileToolStripMenuItem.Text = "DetectorFile";
-            this.detectorFileToolStripMenuItem.Click += new System.EventHandler(this.detectorFileToolStripMenuItem_Click);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(445, 28);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Happy";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(448, 45);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Unhappy";
+            // 
+            // happyScore
+            // 
+            this.happyScore.AutoSize = true;
+            this.happyScore.Location = new System.Drawing.Point(517, 27);
+            this.happyScore.Name = "happyScore";
+            this.happyScore.Size = new System.Drawing.Size(0, 13);
+            this.happyScore.TabIndex = 15;
+            // 
+            // unhappyScore
+            // 
+            this.unhappyScore.AutoSize = true;
+            this.unhappyScore.Location = new System.Drawing.Point(517, 45);
+            this.unhappyScore.Name = "unhappyScore";
+            this.unhappyScore.Size = new System.Drawing.Size(0, 13);
+            this.unhappyScore.TabIndex = 16;
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem2.Text = "OpenPhoto";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.OpenJpg_Click);
             // 
             // FaceDetectSample
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(907, 560);
+            this.Controls.Add(this.unhappyScore);
+            this.Controls.Add(this.happyScore);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.SaveAllButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxEyeDetect);
@@ -224,6 +284,12 @@ namespace Microsoft.LiveLabs
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button SaveAllButton;
         private System.Windows.Forms.ToolStripMenuItem detectorFileToolStripMenuItem;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label happyScore;
+        private System.Windows.Forms.Label unhappyScore;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
     }
 }
 

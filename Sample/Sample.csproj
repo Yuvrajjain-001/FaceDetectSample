@@ -136,6 +136,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\tools\nnTcl\nnRunTimeManaged\nnRunTimeManaged.vcxproj">
+      <Project>{0aec98a1-16d5-4947-863b-41a8d7290466}</Project>
+      <Name>nnRunTimeManaged</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DetectionManagedLib\LibFaceDetect.vcxproj">
       <Project>{8367CBB3-F55E-473B-9D3E-814A8BC38B19}</Project>
       <Name>LibFaceDetect</Name>
